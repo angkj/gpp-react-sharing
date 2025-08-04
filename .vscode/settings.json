@@ -1,0 +1,15 @@
+{
+  "css.lint.validProperties": [],
+  "css.lint.unknownProperties": "ignore",
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "eslint.rules.customizations": [
+    {
+      "rule": "no-inline-styles",
+      "severity": "off"
+    },
+    {
+      "rule": "react/forbid-dom-props",
+      "severity": "off"
+    }
+  ]
+}
