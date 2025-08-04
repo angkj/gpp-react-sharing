@@ -91,7 +91,10 @@ export const RapidUpdatesDemo = () => {
             fontSize: 'var(--font-size-sm)',
             color: '#D32F2F',
             marginBottom: 'var(--spacing-md)',
-            fontFamily: 'SF Mono, Monaco, monospace'
+            fontFamily: 'SF Mono, Monaco, monospace',
+            backgroundColor: '#FFCDD2',
+            padding: 'var(--spacing-sm)',
+            borderRadius: 'var(--radius-sm)'
           }}>
             setCount(count + 1)
           </div>
@@ -167,7 +170,10 @@ export const RapidUpdatesDemo = () => {
             fontSize: 'var(--font-size-sm)',
             color: '#388E3C',
             marginBottom: 'var(--spacing-md)',
-            fontFamily: 'SF Mono, Monaco, monospace'
+            fontFamily: 'SF Mono, Monaco, monospace',
+            backgroundColor: '#C8E6C9',
+            padding: 'var(--spacing-sm)',
+            borderRadius: 'var(--radius-sm)'
           }}>
             setCount(prev =&gt; prev + 1)
           </div>

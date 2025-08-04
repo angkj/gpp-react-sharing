@@ -1,8 +1,8 @@
 import HookPageLayout from '../../components/HookPageLayout';
-import { WhyNotRegularVariablesDemo } from './useState/RegularVariableDemo';
-import { InitializationPerformanceDemo } from './useState/InitializationPerformanceDemo';
-import { RapidUpdatesDemo } from './useState/RapidUpdatesDemo';
-import { AsyncStateDemo } from './useState/AsyncStateDemo';
+import { WhyNotRegularVariablesDemo } from './useStatePageComponents/RegularVariableDemo';
+import { InitializationPerformanceDemo } from './useStatePageComponents/InitializationPerformanceDemo';
+import { RapidUpdatesDemo } from './useStatePageComponents/RapidUpdatesDemo';
+// import { AsyncStateDemo } from './useStatePageComponents/AsyncStateDemo';
 
 const UseStatePage = () => {
   return (
@@ -13,28 +13,27 @@ const UseStatePage = () => {
       codeExample={`// Basic initialization
 const [count, setCount] = useState(0);
 
-// Functional initialization (for expensive computations)
-// This function ONLY runs once during initial render,
-// NOT on every re-render - React ignores it after first mount
+// Functional initialization (runs only once)
 const [expensiveValue, setExpensiveValue] = useState(() => {
-  console.log('This only runs ONCE!');
-  return calculateExpensiveValue(); // Expensive operation
+  return calculateExpensiveValue();
 });
 
-// ❌ BAD: This would run on every render
-// const [badValue, setBadValue] = useState(calculateExpensiveValue());
-
-// Update state
+// Updating state
 setCount(count + 1);
 
-// Functional update (recommended for state based on previous state)
-setCount(prevCount => prevCount + 1);`}
+// Functional update (recommended for state updates)
+setCount(prevCount => prevCount + 1);
+
+// Multiple rapid updates
+setCount(prev => prev + 1);  // ✅ Always works
+setCount(prev => prev + 1);
+setCount(prev => prev + 1);`}
     >
       <WhyNotRegularVariablesDemo />
       <InitializationPerformanceDemo />
 
       <RapidUpdatesDemo />
-      <AsyncStateDemo />
+      {/* <AsyncStateDemo /> */}
     </HookPageLayout>
   );
 };

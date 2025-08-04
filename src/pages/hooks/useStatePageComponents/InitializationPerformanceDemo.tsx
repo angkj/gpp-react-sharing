@@ -49,6 +49,18 @@ export const BadInitializationDemo = () => {
       </h3>
       
       <div style={{
+        fontSize: 'var(--font-size-sm)',
+        color: '#D32F2F',
+        marginBottom: 'var(--spacing-md)',
+        fontFamily: 'SF Mono, Monaco, monospace',
+        backgroundColor: '#FFCDD2',
+        padding: 'var(--spacing-sm)',
+        borderRadius: 'var(--radius-sm)'
+      }}>
+        useState(expensiveCalculation())
+      </div>
+      
+      <div style={{
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
         gap: 'var(--spacing-md)',
@@ -140,6 +152,18 @@ export const GoodInitializationDemo = () => {
       }}>
         Functional Initialization
       </h3>
+      
+      <div style={{
+        fontSize: 'var(--font-size-sm)',
+        color: '#388E3C',
+        marginBottom: 'var(--spacing-md)',
+        fontFamily: 'SF Mono, Monaco, monospace',
+        backgroundColor: '#C8E6C9',
+        padding: 'var(--spacing-sm)',
+        borderRadius: 'var(--radius-sm)'
+      }}>
+        useState(() =&gt; expensiveCalculation())
+      </div>
       
       <div style={{
         display: 'grid',

@@ -73,6 +73,18 @@ export const AsyncStateDemo = () => {
           </h3>
           
           <div style={{
+            fontSize: 'var(--font-size-sm)',
+            color: 'var(--apple-blue)',
+            marginBottom: 'var(--spacing-md)',
+            fontFamily: 'SF Mono, Monaco, monospace',
+            backgroundColor: 'var(--apple-gray-2)',
+            padding: 'var(--spacing-sm)',
+            borderRadius: 'var(--radius-sm)'
+          }}>
+            setCount(count + 1)
+          </div>
+          
+          <div style={{
             fontSize: 'var(--font-size-4xl)',
             fontWeight: '700',
             color: 'var(--apple-blue)',
@@ -114,6 +126,18 @@ export const AsyncStateDemo = () => {
           }}>
             Console Log
           </h3>
+          
+          <div style={{
+            fontSize: 'var(--font-size-sm)',
+            color: '#666',
+            marginBottom: 'var(--spacing-md)',
+            fontFamily: 'SF Mono, Monaco, monospace',
+            backgroundColor: '#E0E0E0',
+            padding: 'var(--spacing-sm)',
+            borderRadius: 'var(--radius-sm)'
+          }}>
+            console.log('After setState:', count)
+          </div>
           
           <div style={{
             fontFamily: 'SF Mono, Monaco, monospace',
