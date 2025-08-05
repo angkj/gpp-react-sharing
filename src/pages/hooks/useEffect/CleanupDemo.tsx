@@ -9,7 +9,8 @@ const TimerComponent = () => {
     console.log('🟢 Timer mounted - starting interval');
     
     let tickCount = 0;
-    const interval = setInterval(() => {
+    // const interval = setInterval(() => {
+    setInterval(() => {
       tickCount++;
       console.log('⏰ Timer tick:', tickCount, '(This should stop when component unmounts!)');
       

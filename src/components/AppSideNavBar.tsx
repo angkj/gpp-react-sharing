@@ -57,10 +57,10 @@ const AppSideNavBar = () => {
   const hookItems = [
     { key: 'useEffect', label: 'useEffect' },
     { key: 'useState', label: 'useState' },
-    { key: 'useRef', label: 'useRef' },
-    { key: 'useContext', label: 'useContext' },
     { key: 'useMemo', label: 'useMemo' },
     { key: 'useCallback', label: 'useCallback' },
+    { key: 'useRef', label: 'useRef' },
+    { key: 'useContext', label: 'useContext' },
     { key: 'useImperativeHandle', label: 'useImperativeHandle' },
   ];
 

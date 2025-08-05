@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
+import { FloatButton } from 'antd';
+import { Sun, Moon } from 'lucide-react';
 import AppSideNavBar from '../components/AppSideNavBar';
-import ThemeToggle from '../components/ThemeToggle';
+import { useTheme } from '../contexts/ThemeContext';
 import PageContents from '../pages/PageContents';
 import HomePage from '../pages/HomePage';
 import ConceptsPage from '../pages/concepts/ConceptsPage';
@@ -17,7 +19,8 @@ import reactLogo from '../assets/react.svg';
 
 const MainLayout = () => {
   const [currentPage, setCurrentPage] = useState('home');
-
+  const { theme, toggleTheme } = useTheme();
+  console.log('Current theme:', theme);
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const page = urlParams.get('page') || 'home';
@@ -108,14 +111,6 @@ const MainLayout = () => {
             React 101
           </h1>
         </div>
-        
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: 'var(--spacing-md)'
-        }}>
-          <ThemeToggle />
-        </div>
       </header>
 
       {/* Main Content Area */}
@@ -172,6 +167,22 @@ const MainLayout = () => {
           </div>
         </div>
       </div>
+      {/* Floating Theme Toggle */}
+      <FloatButton
+        icon={theme === 'light' ? <Moon size={18} color="#3C3C43" /> : <Sun size={18} color="#FFFFFF" />}
+        onClick={toggleTheme}
+        style={{
+          backgroundColor: theme === 'light' ? '#FFFFFF' : '#1C1C1E',
+          borderColor: theme === 'light' ? '#3C3C4329' : '#EBEBF529',
+          border: `1px solid ${theme === 'light' ? '#3C3C4329' : '#EBEBF529'}`,
+          boxShadow: theme === 'light' 
+            ? '0 8px 32px rgba(0, 0, 0, 0.15)' 
+            : '0 8px 32px rgba(0, 0, 0, 0.5)',
+          color: theme === 'light' ? '#FFFFFF' : '#3C3C43'
+        }}
+        className={theme === 'dark' ? 'dark-float-button' : ''}
+        tooltip={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+      />
     </div>
   );
 };

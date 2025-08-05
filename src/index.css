@@ -154,3 +154,39 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--apple-gray-3);
 }
+
+/* Dark FloatButton styling - override Ant Design's CSS-in-JS styles */
+.dark-float-button.ant-float-btn.ant-float-btn-default,
+.dark-float-button.ant-float-btn.ant-float-btn-default .ant-float-btn-body {
+  background-color: #1C1C1E !important;
+  border-color: #EBEBF529 !important;
+  color: #FFFFFF !important;
+}
+
+.dark-float-button.ant-float-btn.ant-float-btn-default:hover,
+.dark-float-button.ant-float-btn.ant-float-btn-default:hover .ant-float-btn-body {
+  background-color: #2C2C2E !important;
+  border-color: #EBEBF540 !important;
+  color: #FFFFFF !important;
+  transform: scale(1.05);
+}
+
+.dark-float-button.ant-float-btn.ant-float-btn-default:active,
+.dark-float-button.ant-float-btn.ant-float-btn-default:active .ant-float-btn-body {
+  background-color: #1C1C1E !important;
+  transform: scale(0.95);
+}
+
+/* Center icons in FloatButton */
+.ant-float-btn .ant-float-btn-body {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.ant-float-btn .ant-float-btn-icon {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+}
