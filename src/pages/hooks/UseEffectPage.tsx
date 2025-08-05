@@ -1,7 +1,7 @@
 import HookPageLayout from '../../components/HookPageLayout';
-import { DOMRenderingDemo } from './useEffect/DOMRenderingDemo';
-import { DependencyArrayModal } from './useEffect/DependencyArrayModal';
-import { CleanupDemo } from './useEffect/CleanupDemo';
+import { DOMRenderingDemo } from './useEffectPageComponents/DOMRenderingDemo';
+import { DependencyArrayModal } from './useEffectPageComponents/DependencyArrayModal';
+import { CleanupDemo } from './useEffectPageComponents/CleanupDemo';
 
 const UseEffectPage = () => {
   return (

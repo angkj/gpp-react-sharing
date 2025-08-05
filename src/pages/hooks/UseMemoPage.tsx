@@ -1,4 +1,5 @@
 import HookPageLayout from '../../components/HookPageLayout';
+import { UseMemoDemo } from './useMemoPageComponents/UseMemoDemo';
 
 const UseMemoPage = () => {
   return (
@@ -15,8 +16,11 @@ const memoizedObject = useMemo(() => ({
   name: user.name,
   email: user.email
 }), [user.name, user.email]);`}
-    />
+    >
+      <UseMemoDemo />
+    </HookPageLayout>
   );
 };
+
 
 export default UseMemoPage;

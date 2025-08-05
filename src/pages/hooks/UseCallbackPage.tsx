@@ -1,4 +1,5 @@
 import HookPageLayout from '../../components/HookPageLayout';
+import { UseCallbackDemo } from './useCallbackPageComponents/UseCallbackDemo';
 
 const UseCallbackPage = () => {
   return (
@@ -17,7 +18,9 @@ const UseCallbackPage = () => {
 const handleClick = useCallback((id) => {
   setSelectedId(id);
 }, []);`}
-    />
+    >
+      <UseCallbackDemo />
+    </HookPageLayout>
   );
 };
 
