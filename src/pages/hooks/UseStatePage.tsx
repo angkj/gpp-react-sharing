@@ -13,26 +13,59 @@ const UseStatePage = () => {
       codeExample={`// Basic initialization
 const [count, setCount] = useState(0);
 
-// Functional initialization (runs only once)
-const [expensiveValue, setExpensiveValue] = useState(() => {
-  return calculateExpensiveValue();
-});
-
 // Updating state
-setCount(count + 1);
-
-// Functional update (recommended for state updates)
-setCount(prevCount => prevCount + 1);
-
-// Multiple rapid updates
-setCount(prev => prev + 1);  // ✅ Always works
-setCount(prev => prev + 1);
-setCount(prev => prev + 1);`}
+setCount(count + 1);`}
     >
       <WhyNotRegularVariablesDemo />
+      
+      {/* Initialization Performance Demo */}
+      <div style={{
+        padding: 'var(--spacing-lg)',
+        backgroundColor: 'var(--apple-gray-1)',
+        borderRadius: 'var(--radius-md)',
+        border: '1px solid var(--apple-gray-2)',
+        fontFamily: 'SF Mono, Monaco, Inconsolata, "Roboto Mono", Consolas, "Courier New", monospace',
+        fontSize: 'var(--font-size-sm)',
+        lineHeight: '1.6',
+        color: 'var(--apple-text-primary)',
+        marginTop: 'var(--spacing-2xl)',
+        marginBottom: 'var(--spacing-lg)'
+      }}>
+        <pre style={{ margin: 0, whiteSpace: 'pre-wrap' }}>
+{`// ❌ BAD: Runs expensive calculation on every render
+const [value, setValue] = useState(expensiveCalculation());
+
+// ✅ GOOD: Runs expensive calculation only once
+const [value, setValue] = useState(() => expensiveCalculation());`}
+        </pre>
+      </div>
       <InitializationPerformanceDemo />
 
+      {/* Rapid Updates Demo */}
+      <div style={{
+        padding: 'var(--spacing-lg)',
+        backgroundColor: 'var(--apple-gray-1)',
+        borderRadius: 'var(--radius-md)',
+        border: '1px solid var(--apple-gray-2)',
+        fontFamily: 'SF Mono, Monaco, Inconsolata, "Roboto Mono", Consolas, "Courier New", monospace',
+        fontSize: 'var(--font-size-sm)',
+        lineHeight: '1.6',
+        color: 'var(--apple-text-primary)',
+        marginTop: 'var(--spacing-2xl)',
+        marginBottom: 'var(--spacing-lg)'
+      }}>
+        <pre style={{ margin: 0, whiteSpace: 'pre-wrap' }}>
+{`// ❌ BAD: Uses stale state, might lose updates
+setCount(count + 1);
+setCount(count + 1);  // Still uses old count value
+
+// ✅ GOOD: Always uses latest state
+setCount(prev => prev + 1);
+setCount(prev => prev + 1);  // Uses updated value`}
+        </pre>
+      </div>
       <RapidUpdatesDemo />
+      
       {/* <AsyncStateDemo /> */}
     </HookPageLayout>
   );
