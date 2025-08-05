@@ -132,7 +132,11 @@ const MainLayout = () => {
           display: 'flex',
           flexDirection: 'column',
           backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)'
+          WebkitBackdropFilter: 'blur(20px)',
+          position: 'sticky',
+          top: '60px',
+          height: 'calc(100vh - 60px)',
+          overflow: 'auto'
         }}>
           {/* Navigation */}
           <div style={{ flex: 1, padding: 'var(--spacing-lg) 0' }}>
