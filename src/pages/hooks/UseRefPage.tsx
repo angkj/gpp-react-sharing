@@ -278,7 +278,7 @@ const MutableValueDemo = () => {
             fontWeight: '700',
             color: '#C62828',
             marginBottom: 'var(--spacing-md)',
-            fontFamily: 'SF Mono, Monaco, monospace'
+            fontFamily: 'var(--font-family-mono)'
           }}>
             {stateCount}
           </div>
@@ -319,7 +319,7 @@ const MutableValueDemo = () => {
             fontSize: 'var(--font-size-base)',
             color: '#1B5E20',
             marginBottom: 'var(--spacing-md)',
-            fontFamily: 'SF Mono, Monaco, monospace'
+            fontFamily: 'var(--font-family-mono)'
           }}>
             Value stored in ref (check console)
           </div>
@@ -372,7 +372,7 @@ const MutableValueDemo = () => {
           fontSize: 'var(--font-size-lg)',
           fontWeight: '600',
           color: 'var(--apple-text-primary)',
-          fontFamily: 'SF Mono, Monaco, monospace'
+          fontFamily: 'var(--font-family-mono)'
         }}>
           🔄 Component Render Count: {renderCount.current}
         </div>
@@ -444,7 +444,7 @@ const PreviousValueDemo = () => {
           
           <div style={{
             marginBottom: 'var(--spacing-md)',
-            fontFamily: 'SF Mono, Monaco, monospace'
+            fontFamily: 'var(--font-family-mono)'
           }}>
             <div style={{ marginBottom: 'var(--spacing-sm)' }}>
               <strong>Current:</strong> {count}
@@ -506,7 +506,7 @@ const PreviousValueDemo = () => {
           
           <div style={{
             marginBottom: 'var(--spacing-md)',
-            fontFamily: 'SF Mono, Monaco, monospace'
+            fontFamily: 'var(--font-family-mono)'
           }}>
             <div style={{ marginBottom: 'var(--spacing-sm)' }}>
               <strong>Current:</strong> "{name || '(empty)'}"

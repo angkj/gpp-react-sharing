@@ -76,7 +76,7 @@ export const AsyncStateDemo = () => {
             fontSize: 'var(--font-size-sm)',
             color: 'var(--apple-blue)',
             marginBottom: 'var(--spacing-md)',
-            fontFamily: 'SF Mono, Monaco, monospace',
+            fontFamily: 'var(--font-family-mono)',
             backgroundColor: 'var(--apple-gray-2)',
             padding: 'var(--spacing-sm)',
             borderRadius: 'var(--radius-sm)'
@@ -88,7 +88,8 @@ export const AsyncStateDemo = () => {
             fontSize: 'var(--font-size-4xl)',
             fontWeight: '700',
             color: 'var(--apple-blue)',
-            marginBottom: 'var(--spacing-lg)'
+            marginBottom: 'var(--spacing-lg)',
+            fontFamily: 'var(--font-family-mono)'
           }}>
             {count}
           </div>
@@ -131,7 +132,7 @@ export const AsyncStateDemo = () => {
             fontSize: 'var(--font-size-sm)',
             color: '#666',
             marginBottom: 'var(--spacing-md)',
-            fontFamily: 'SF Mono, Monaco, monospace',
+            fontFamily: 'var(--font-family-mono)',
             backgroundColor: '#E0E0E0',
             padding: 'var(--spacing-sm)',
             borderRadius: 'var(--radius-sm)'
@@ -140,7 +141,7 @@ export const AsyncStateDemo = () => {
           </div>
           
           <div style={{
-            fontFamily: 'SF Mono, Monaco, monospace',
+            fontFamily: 'var(--font-family-mono)',
             fontSize: 'var(--font-size-sm)',
             backgroundColor: '#000',
             color: '#00FF00',

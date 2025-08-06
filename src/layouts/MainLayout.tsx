@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { FloatButton } from 'antd';
 import { Sun, Moon } from 'lucide-react';
 import AppSideNavBar from '../components/AppSideNavBar';
-import { useTheme } from '../contexts/ThemeContext';
+import { useTheme } from '../hooks/useTheme';
 import PageContents from '../pages/PageContents';
 import HomePage from '../pages/HomePage';
 import ConceptsPage from '../pages/concepts/ConceptsPage';
@@ -26,8 +26,9 @@ const MainLayout = () => {
     const page = urlParams.get('page') || 'home';
     setCurrentPage(page);
 
-    const handleNavigation = (event: any) => {
-      setCurrentPage(event.detail.page);
+    const handleNavigation = (event: Event) => {
+      const customEvent = event as CustomEvent;
+      setCurrentPage(customEvent.detail.page);
     };
 
     window.addEventListener('navigation', handleNavigation);

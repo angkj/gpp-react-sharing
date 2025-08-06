@@ -1,3 +1,5 @@
+import { CodeBlock } from '../shared/components';
+
 interface HookPageLayoutProps {
   title: string;
   description: string;
@@ -74,21 +76,7 @@ const HookPageLayout = ({ title, description, whatIs, codeExample, children }: H
         }}>
           Basic Usage
         </h2>
-        <div style={{
-          backgroundColor: 'var(--apple-gray-1)',
-          borderRadius: 'var(--radius-md)',
-          padding: 'var(--spacing-lg)',
-          border: '1px solid var(--apple-gray-2)',
-          fontFamily: 'SF Mono, Monaco, Inconsolata, "Roboto Mono", Consolas, "Courier New", monospace',
-          fontSize: 'var(--font-size-sm)',
-          lineHeight: '1.6',
-          color: 'var(--apple-text-primary)',
-          overflow: 'auto'
-        }}>
-          <pre style={{ margin: 0, whiteSpace: 'pre-wrap' }}>
-            {codeExample}
-          </pre>
-        </div>
+        <CodeBlock>{codeExample}</CodeBlock>
       </div>
 
       {children}

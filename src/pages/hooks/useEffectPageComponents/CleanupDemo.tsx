@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Modal } from 'antd';
+import { DemoContainer, InfoBox, Button } from '../../../shared/components';
 
 // Timer component that will be mounted/unmounted
 const TimerComponent = () => {
@@ -43,7 +44,7 @@ const TimerComponent = () => {
         fontWeight: '700',
         color: '#1B5E20',
         marginBottom: 'var(--spacing-lg)',
-        fontFamily: 'SF Mono, Monaco, monospace'
+        fontFamily: 'var(--font-family-mono)'
       }}>
         {seconds}s
       </div>
@@ -74,23 +75,7 @@ export const CleanupDemo = () => {
   };
 
   return (
-    <div style={{
-      padding: 'var(--spacing-2xl)',
-      backgroundColor: 'var(--apple-background)',
-      borderRadius: 'var(--radius-lg)',
-      border: '1px solid var(--apple-separator)',
-      boxShadow: '0 4px 16px var(--apple-shadow)',
-      marginTop: 'var(--spacing-2xl)'
-    }}>
-      <h2 style={{
-        fontSize: 'var(--font-size-2xl)',
-        fontWeight: '600',
-        color: 'var(--apple-text-primary)',
-        marginBottom: 'var(--spacing-lg)'
-      }}>
-        useEffect Cleanup Demo
-      </h2>
-
+    <DemoContainer title="useEffect Cleanup Demo" style={{ marginTop: 'var(--spacing-2xl)' }}>
       <p style={{
         fontSize: 'var(--font-size-base)',
         color: 'var(--apple-text-secondary)',
@@ -100,31 +85,23 @@ export const CleanupDemo = () => {
         Open the modal to mount the timer component, then close it to see cleanup in action. Open your console (F12) to watch the cleanup process!
       </p>
 
-      {/* Modal Button */}
       <div style={{
         display: 'flex',
         justifyContent: 'center',
         marginBottom: 'var(--spacing-xl)'
       }}>
         <div style={{ textAlign: 'center' }}>
-          <button
+          <Button
+            variant="success"
+            size="lg"
             onClick={handleOpenTimer}
             style={{
-              padding: 'var(--spacing-lg) var(--spacing-2xl)',
-              backgroundColor: '#4CAF50',
-              color: 'white',
-              border: 'none',
-              borderRadius: 'var(--radius-md)',
-              fontSize: 'var(--font-size-lg)',
-              fontWeight: '600',
-              cursor: 'pointer',
-              transition: 'var(--transition-fast)',
               boxShadow: '0 4px 12px rgba(76, 175, 80, 0.3)',
               marginBottom: 'var(--spacing-md)'
             }}
           >
             ⏰ Open Timer Cleanup Demo
-          </button>
+          </Button>
           <div style={{
             fontSize: 'var(--font-size-sm)',
             color: 'var(--apple-text-secondary)',
@@ -135,45 +112,19 @@ export const CleanupDemo = () => {
         </div>
       </div>
 
-      {/* Info boxes */}
       <div style={{
         display: 'grid',
         gap: 'var(--spacing-md)'
       }}>
-        <div style={{
-          padding: 'var(--spacing-lg)',
-          backgroundColor: '#E8F5E8',
-          borderRadius: 'var(--radius-md)',
-          borderLeft: '4px solid #4CAF50'
-        }}>
-          <p style={{
-            fontSize: 'var(--font-size-base)',
-            fontWeight: '500',
-            margin: 0,
-            color: '#2E7D32'
-          }}>
-            ✅ <strong>Watch Console:</strong> When you open the modal, the timer component mounts and starts ticking. When you close the modal, the cleanup function should run and stop the timer!
-          </p>
-        </div>
+        <InfoBox variant="success">
+          ✅ <strong>Watch Console:</strong> When you open the modal, the timer component mounts and starts ticking. When you close the modal, the cleanup function should run and stop the timer!
+        </InfoBox>
         
-        <div style={{
-          padding: 'var(--spacing-lg)',
-          backgroundColor: '#FFEBEE',
-          borderRadius: 'var(--radius-md)',
-          borderLeft: '4px solid #F44336'
-        }}>
-          <p style={{
-            fontSize: 'var(--font-size-base)',
-            fontWeight: '500',
-            margin: 0,
-            color: '#C62828'
-          }}>
-            ⚠️ <strong>Without Cleanup:</strong> The timer keeps running in the background consuming memory and CPU, even after the component is destroyed. This is a memory leak!
-          </p>
-        </div>
+        <InfoBox variant="error">
+          ⚠️ <strong>Without Cleanup:</strong> The timer keeps running in the background consuming memory and CPU, even after the component is destroyed. This is a memory leak!
+        </InfoBox>
       </div>
 
-      {/* Modal */}
       <Modal
         title="⏰ Timer Cleanup Demo"
         open={showTimerModal}
@@ -185,6 +136,6 @@ export const CleanupDemo = () => {
       >
         <TimerComponent />
       </Modal>
-    </div>
+    </DemoContainer>
   );
 };

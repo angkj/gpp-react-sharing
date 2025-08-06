@@ -70,7 +70,8 @@ const DependencyArrayDemoContent = () => {
               fontWeight: '700', 
               color: 'var(--apple-blue)',
               minWidth: '60px',
-              textAlign: 'center'
+              textAlign: 'center',
+              fontFamily: 'var(--font-family-mono)'
             }}>
               {count}
             </span>

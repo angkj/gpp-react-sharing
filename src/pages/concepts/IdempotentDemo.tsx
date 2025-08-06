@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 // Good Clock - Pure Component (always returns same output for same props)
 const GoodClock = () => {
-  const [time, _] = useState(() => new Date());
+  const [time] = useState(() => new Date());
   return (
     <div style={{
       padding: 'var(--spacing-xl)',
@@ -39,7 +39,7 @@ const GoodClock = () => {
         fontSize: 'var(--font-size-3xl)',
         fontWeight: '700',
         color: '#1B5E20',
-        fontFamily: 'SF Mono, Monaco, monospace',
+        fontFamily: 'var(--font-family-mono)',
         marginBottom: 'var(--spacing-md)'
       }}>
         {time.toLocaleTimeString()}
@@ -98,7 +98,7 @@ const BadClock = () => {
         fontSize: 'var(--font-size-3xl)',
         fontWeight: '700',
         color: '#B71C1C',
-        fontFamily: 'SF Mono, Monaco, monospace',
+        fontFamily: 'var(--font-family-mono)',
         marginBottom: 'var(--spacing-md)'
       }}>
         {currentTime.toLocaleTimeString()}
@@ -117,7 +117,7 @@ const BadClock = () => {
 };
 
 const IdempotentDemo = () => {
-  const [_, setCount] = useState(0);
+  const [, setCount] = useState(0);
 
   return (
     <div style={{ 

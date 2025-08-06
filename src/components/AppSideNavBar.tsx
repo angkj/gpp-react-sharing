@@ -64,7 +64,7 @@ const AppSideNavBar = () => {
     { key: 'useImperativeHandle', label: 'useImperativeHandle' },
   ];
 
-  const NavItem = ({ item, isSelected }: { item: any, isSelected: boolean }) => (
+  const NavItem = ({ item, isSelected }: { item: { key: string; icon?: React.ReactNode; label: string }, isSelected: boolean }) => (
     <div
       onClick={() => handleNavClick(item.key)}
       style={{
@@ -100,7 +100,7 @@ const AppSideNavBar = () => {
     </div>
   );
 
-  const HookItem = ({ item, isSelected }: { item: any, isSelected: boolean }) => (
+  const HookItem = ({ item, isSelected }: { item: { key: string; label: string }, isSelected: boolean }) => (
     <div
       onClick={() => handleNavClick(item.key)}
       style={{

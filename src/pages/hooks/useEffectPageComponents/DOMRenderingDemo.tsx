@@ -69,7 +69,8 @@ export const DOMRenderingDemo = () => {
             fontSize: 'var(--font-size-4xl)',
             fontWeight: '700',
             color: 'var(--apple-blue)',
-            marginBottom: 'var(--spacing-lg)'
+            marginBottom: 'var(--spacing-lg)',
+            fontFamily: 'var(--font-family-mono)'
           }}>
             {count}
           </div>

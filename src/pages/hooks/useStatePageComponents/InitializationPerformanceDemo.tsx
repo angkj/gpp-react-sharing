@@ -52,7 +52,7 @@ export const BadInitializationDemo = () => {
         fontSize: 'var(--font-size-sm)',
         color: '#D32F2F',
         marginBottom: 'var(--spacing-md)',
-        fontFamily: 'SF Mono, Monaco, monospace',
+        fontFamily: 'var(--font-family-mono)',
         backgroundColor: '#FFCDD2',
         padding: 'var(--spacing-sm)',
         borderRadius: 'var(--radius-sm)'
@@ -68,13 +68,13 @@ export const BadInitializationDemo = () => {
       }}>
         <div>
           <div style={{ fontSize: 'var(--font-size-sm)', color: '#666' }}>Re-render Count</div>
-          <div style={{ fontSize: 'var(--font-size-2xl)', fontWeight: '700', color: '#B71C1C' }}>
+          <div style={{ fontSize: 'var(--font-size-2xl)', fontWeight: '700', color: '#B71C1C', fontFamily: 'var(--font-family-mono)' }}>
             {count}
           </div>
         </div>
         <div>
           <div style={{ fontSize: 'var(--font-size-sm)', color: '#666' }}>Expensive Value</div>
-          <div style={{ fontSize: 'var(--font-size-2xl)', fontWeight: '700', color: '#B71C1C' }}>
+          <div style={{ fontSize: 'var(--font-size-2xl)', fontWeight: '700', color: '#B71C1C', fontFamily: 'var(--font-family-mono)' }}>
             {expensiveValue}
           </div>
         </div>
@@ -157,7 +157,7 @@ export const GoodInitializationDemo = () => {
         fontSize: 'var(--font-size-sm)',
         color: '#388E3C',
         marginBottom: 'var(--spacing-md)',
-        fontFamily: 'SF Mono, Monaco, monospace',
+        fontFamily: 'var(--font-family-mono)',
         backgroundColor: '#C8E6C9',
         padding: 'var(--spacing-sm)',
         borderRadius: 'var(--radius-sm)'
@@ -173,13 +173,13 @@ export const GoodInitializationDemo = () => {
       }}>
         <div>
           <div style={{ fontSize: 'var(--font-size-sm)', color: '#666' }}>Re-render Count</div>
-          <div style={{ fontSize: 'var(--font-size-2xl)', fontWeight: '700', color: '#1B5E20' }}>
+          <div style={{ fontSize: 'var(--font-size-2xl)', fontWeight: '700', color: '#1B5E20', fontFamily: 'var(--font-family-mono)' }}>
             {count}
           </div>
         </div>
         <div>
           <div style={{ fontSize: 'var(--font-size-sm)', color: '#666' }}>Expensive Value</div>
-          <div style={{ fontSize: 'var(--font-size-2xl)', fontWeight: '700', color: '#1B5E20' }}>
+          <div style={{ fontSize: 'var(--font-size-2xl)', fontWeight: '700', color: '#1B5E20', fontFamily: 'var(--font-family-mono)' }}>
             {expensiveValue}
           </div>
         </div>

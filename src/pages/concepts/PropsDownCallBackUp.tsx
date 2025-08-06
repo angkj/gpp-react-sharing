@@ -36,7 +36,7 @@ const Counter = ({
         fontWeight: '700',
         color: 'var(--apple-blue)',
         marginBottom: 'var(--spacing-lg)',
-        fontFamily: 'SF Mono, Monaco, monospace'
+        fontFamily: 'var(--font-family-mono)'
       }}>
         {count}
       </div>

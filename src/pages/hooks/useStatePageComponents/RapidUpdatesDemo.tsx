@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { DemoContainer, InfoBox, ComparisonCounter } from '../../../shared/components';
 
 export const RapidUpdatesDemo = () => {
   const [directCount, setDirectCount] = useState(0);
@@ -25,23 +26,10 @@ export const RapidUpdatesDemo = () => {
   };
 
   return (
-    <div style={{
-      padding: 'var(--spacing-2xl)',
-      backgroundColor: 'var(--apple-background)',
-      borderRadius: 'var(--radius-lg)',
-      border: '1px solid var(--apple-separator)',
-      boxShadow: '0 4px 16px var(--apple-shadow)',
-      marginTop: 'var(--spacing-2xl)'
-    }}>
-      <h2 style={{
-        fontSize: 'var(--font-size-2xl)',
-        fontWeight: '600',
-        color: 'var(--apple-text-primary)',
-        marginBottom: 'var(--spacing-lg)'
-      }}>
-        Rapid Updates Demo: Direct vs Functional
-      </h2>
-
+    <DemoContainer 
+      title="Rapid Updates Demo: Direct vs Functional"
+      style={{ marginTop: 'var(--spacing-2xl)' }}
+    >
       <p style={{
         fontSize: 'var(--font-size-base)',
         color: 'var(--apple-text-secondary)',
@@ -57,180 +45,30 @@ export const RapidUpdatesDemo = () => {
         gap: 'var(--spacing-xl)',
         marginBottom: 'var(--spacing-xl)'
       }}>
-        {/* Direct Updates */}
-        <div style={{
-          padding: 'var(--spacing-lg)',
-          backgroundColor: '#FFEBEE',
-          borderRadius: 'var(--radius-md)',
-          border: '2px solid #F44336',
-          textAlign: 'center'
-        }}>
-          <div style={{
-            display: 'inline-block',
-            backgroundColor: '#F44336',
-            color: 'white',
-            padding: '4px 8px',
-            borderRadius: 'var(--radius-sm)',
-            fontSize: 'var(--font-size-xs)',
-            fontWeight: '600',
-            marginBottom: 'var(--spacing-md)'
-          }}>
-            ❌ UNRELIABLE
-          </div>
-          
-          <h3 style={{
-            fontSize: 'var(--font-size-lg)',
-            fontWeight: '600',
-            color: '#C62828',
-            marginBottom: 'var(--spacing-md)'
-          }}>
-            Direct Updates
-          </h3>
-          
-          <div style={{
-            fontSize: 'var(--font-size-sm)',
-            color: '#D32F2F',
-            marginBottom: 'var(--spacing-md)',
-            fontFamily: 'SF Mono, Monaco, monospace',
-            backgroundColor: '#FFCDD2',
-            padding: 'var(--spacing-sm)',
-            borderRadius: 'var(--radius-sm)'
-          }}>
-            setCount(count + 1)
-          </div>
-          
-          <div style={{
-            fontSize: 'var(--font-size-4xl)',
-            fontWeight: '700',
-            color: '#B71C1C',
-            marginBottom: 'var(--spacing-lg)'
-          }}>
-            {directCount}
-          </div>
-          
-          <button
-            onClick={handleDirectRapidUpdate}
-            style={{
-              padding: 'var(--spacing-md) var(--spacing-lg)',
-              backgroundColor: '#F44336',
-              color: 'white',
-              border: 'none',
-              borderRadius: 'var(--radius-md)',
-              fontSize: 'var(--font-size-base)',
-              fontWeight: '600',
-              cursor: 'pointer',
-              transition: 'var(--transition-fast)',
-              marginBottom: 'var(--spacing-md)'
-            }}
-          >
-            +5 (Might Only Add 1!)
-          </button>
-          
-          <p style={{
-            fontSize: 'var(--font-size-sm)',
-            color: '#D32F2F',
-            margin: 0,
-            fontStyle: 'italic'
-          }}>
-            Uses stale state - loses updates!
-          </p>
-        </div>
+        <ComparisonCounter
+          variant="error"
+          title="Direct Updates"
+          codeExample="setCount(count + 1)"
+          count={directCount}
+          onIncrement={handleDirectRapidUpdate}
+          buttonText="+5 (Might Only Add 1!)"
+          description="Uses stale state - loses updates!"
+        />
 
-        {/* Functional Updates */}
-        <div style={{
-          padding: 'var(--spacing-lg)',
-          backgroundColor: '#E8F5E8',
-          borderRadius: 'var(--radius-md)',
-          border: '2px solid #4CAF50',
-          textAlign: 'center'
-        }}>
-          <div style={{
-            display: 'inline-block',
-            backgroundColor: '#4CAF50',
-            color: 'white',
-            padding: '4px 8px',
-            borderRadius: 'var(--radius-sm)',
-            fontSize: 'var(--font-size-xs)',
-            fontWeight: '600',
-            marginBottom: 'var(--spacing-md)'
-          }}>
-            ✅ RELIABLE
-          </div>
-          
-          <h3 style={{
-            fontSize: 'var(--font-size-lg)',
-            fontWeight: '600',
-            color: '#2E7D32',
-            marginBottom: 'var(--spacing-md)'
-          }}>
-            Functional Updates
-          </h3>
-          
-          <div style={{
-            fontSize: 'var(--font-size-sm)',
-            color: '#388E3C',
-            marginBottom: 'var(--spacing-md)',
-            fontFamily: 'SF Mono, Monaco, monospace',
-            backgroundColor: '#C8E6C9',
-            padding: 'var(--spacing-sm)',
-            borderRadius: 'var(--radius-sm)'
-          }}>
-            setCount(prev =&gt; prev + 1)
-          </div>
-          
-          <div style={{
-            fontSize: 'var(--font-size-4xl)',
-            fontWeight: '700',
-            color: '#1B5E20',
-            marginBottom: 'var(--spacing-lg)'
-          }}>
-            {functionalCount}
-          </div>
-          
-          <button
-            onClick={handleFunctionalRapidUpdate}
-            style={{
-              padding: 'var(--spacing-md) var(--spacing-lg)',
-              backgroundColor: '#4CAF50',
-              color: 'white',
-              border: 'none',
-              borderRadius: 'var(--radius-md)',
-              fontSize: 'var(--font-size-base)',
-              fontWeight: '600',
-              cursor: 'pointer',
-              transition: 'var(--transition-fast)',
-              marginBottom: 'var(--spacing-md)'
-            }}
-          >
-            +5 (Always Works!)
-          </button>
-          
-          <p style={{
-            fontSize: 'var(--font-size-sm)',
-            color: '#388E3C',
-            margin: 0,
-            fontStyle: 'italic'
-          }}>
-            Uses latest state - never loses updates!
-          </p>
-        </div>
+        <ComparisonCounter
+          variant="success"
+          title="Functional Updates"
+          codeExample="setCount(prev => prev + 1)"
+          count={functionalCount}
+          onIncrement={handleFunctionalRapidUpdate}
+          buttonText="+5 (Always Works!)"
+          description="Uses latest state - never loses updates!"
+        />
       </div>
 
-      <div style={{
-        padding: 'var(--spacing-lg)',
-        backgroundColor: '#FFF3E0',
-        borderRadius: 'var(--radius-md)',
-        borderLeft: '4px solid #FF9800'
-      }}>
-        <p style={{
-          fontSize: 'var(--font-size-base)',
-          fontWeight: '500',
-          margin: 0,
-          color: '#E65100'
-        }}>
-          💡 <strong>Why This Happens:</strong> setState is asynchronous and batches updates. Direct updates use stale state values, while functional updates always get the latest state from React.
-        </p>
-      </div>
-    </div>
+      <InfoBox variant="warning">
+        💡 <strong>Why This Happens:</strong> setState is asynchronous and batches updates. Direct updates use stale state values, while functional updates always get the latest state from React.
+      </InfoBox>
+    </DemoContainer>
   );
 };
