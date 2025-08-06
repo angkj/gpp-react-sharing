@@ -1,31 +1,21 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState } from 'react';
 
-export const UseMemoDemo = () => {
-  const [count, setCount] = useState(0);
-  const [multiplier, setMultiplier] = useState(1);
-  const [renderCount, setRenderCount] = useState(0);
+
 
   // Simulate expensive calculation
-  const expensiveCalculation = (num: number) => {
-    console.log('🔄 Running expensive calculation...');
+const expensiveCalculation = () => {
+    console.log('💸 Expensive calculation running on every render!');
     let result = 0;
-    for (let i = 0; i < 100000000; i++) {
-      result += num;
+    for (let i = 0; i < 50000000; i++) {
+      result += Math.random();
     }
     return result;
   };
 
-  // WITH useMemo - only runs when multiplier changes
-  const expensiveValueWithMemo = useMemo(() => {
-    console.log('✅ useMemo: Expensive calculation executed');
-    return expensiveCalculation(multiplier);
-  }, [multiplier]);
-
-  // Track renders
-  useEffect(() => {
-    setRenderCount(prev => prev + 1);
-    console.log(`🔄 Component rendered ${renderCount + 1} times`);
-  });
+export const UseMemoDemo = () => {
+  const [count, setCount] = useState(0);
+  // WITHOUT useMemo - runs on EVERY render (even when the result doesn't depend on count)
+  expensiveCalculation();
 
   return (
     <div style={{
@@ -41,168 +31,107 @@ export const UseMemoDemo = () => {
         color: 'var(--apple-text-primary)',
         marginBottom: 'var(--spacing-lg)'
       }}>
-        🧪 Interactive useMemo Demo
+        🧪 useMemo Demo - WITHOUT Memoization
       </h2>
 
       <div style={{
-        display: 'grid',
-        gap: 'var(--spacing-lg)',
+        padding: 'var(--spacing-lg)',
+        backgroundColor: '#E3F2FD',
+        borderRadius: 'var(--radius-md)',
+        borderLeft: '4px solid #1976D2',
         marginBottom: 'var(--spacing-xl)'
       }}>
-        <div style={{
-          padding: 'var(--spacing-lg)',
-          backgroundColor: '#E3F2FD',
-          borderRadius: 'var(--radius-md)',
-          borderLeft: '4px solid #1976D2'
+        <p style={{
+          fontSize: 'var(--font-size-base)',
+          fontWeight: '500',
+          margin: 0,
+          color: '#1565C0'
         }}>
-          <p style={{
-            fontSize: 'var(--font-size-base)',
-            fontWeight: '500',
-            margin: 0,
-            color: '#1565C0'
-          }}>
-            📊 <strong>Open your browser console (F12)</strong> to see when expensive calculations run!
-          </p>
-        </div>
+          📊 <strong>Open your browser console (F12)</strong> to see the expensive calculation running on every render!
+        </p>
       </div>
 
       <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: 'var(--spacing-xl)',
+        display: 'flex',
+        justifyContent: 'center',
         marginBottom: 'var(--spacing-xl)'
       }}>
-        {/* Controls */}
-        <div>
+        {/* Counter Display */}
+        <div style={{
+          padding: 'var(--spacing-xl)',
+          backgroundColor: 'var(--apple-gray-1)',
+          borderRadius: 'var(--radius-md)',
+          border: '1px solid var(--apple-separator)',
+          textAlign: 'center',
+          minWidth: '300px'
+        }}>
           <h3 style={{
             fontSize: 'var(--font-size-lg)',
             fontWeight: '600',
             color: 'var(--apple-text-primary)',
             marginBottom: 'var(--spacing-md)'
           }}>
-            🎛️ Controls
-          </h3>
-          
-          <div style={{ marginBottom: 'var(--spacing-lg)' }}>
-            <label style={{
-              display: 'block',
-              fontSize: 'var(--font-size-base)',
-              fontWeight: '500',
-              color: 'var(--apple-text-primary)',
-              marginBottom: 'var(--spacing-sm)'
-            }}>
-              Count: {count}
-            </label>
-            <button
-              onClick={() => setCount(c => c + 1)}
-              style={{
-                padding: 'var(--spacing-sm) var(--spacing-lg)',
-                backgroundColor: '#FF6B6B',
-                color: 'white',
-                border: 'none',
-                borderRadius: 'var(--radius-md)',
-                fontSize: 'var(--font-size-base)',
-                fontWeight: '500',
-                cursor: 'pointer',
-                transition: 'var(--transition-fast)'
-              }}
-            >
-              ➕ Increment Count (Causes Re-render)
-            </button>
-          </div>
-
-          <div>
-            <label style={{
-              display: 'block',
-              fontSize: 'var(--font-size-base)',
-              fontWeight: '500',
-              color: 'var(--apple-text-primary)',
-              marginBottom: 'var(--spacing-sm)'
-            }}>
-              Multiplier: {multiplier}
-            </label>
-            <button
-              onClick={() => setMultiplier(m => m + 1)}
-              style={{
-                padding: 'var(--spacing-sm) var(--spacing-lg)',
-                backgroundColor: '#4CAF50',
-                color: 'white',
-                border: 'none',
-                borderRadius: 'var(--radius-md)',
-                fontSize: 'var(--font-size-base)',
-                fontWeight: '500',
-                cursor: 'pointer',
-                transition: 'var(--transition-fast)'
-              }}
-            >
-              ✖️ Change Multiplier (Triggers Calculation)
-            </button>
-          </div>
-        </div>
-
-        {/* Results */}
-        <div>
-          <h3 style={{
-            fontSize: 'var(--font-size-lg)',
-            fontWeight: '600',
-            color: 'var(--apple-text-primary)',
-            marginBottom: 'var(--spacing-md)'
-          }}>
-            📈 Results
+            Current Count
           </h3>
           
           <div style={{
-            padding: 'var(--spacing-lg)',
-            backgroundColor: 'var(--apple-gray-1)',
-            borderRadius: 'var(--radius-md)',
-            fontFamily: 'SF Mono, Monaco, monospace'
+            fontSize: 'var(--font-size-4xl)',
+            fontWeight: '700',
+            color: '#4CAF50',
+            marginBottom: 'var(--spacing-lg)'
           }}>
-            <div style={{ marginBottom: 'var(--spacing-sm)' }}>
-              <strong>Render Count:</strong> {renderCount}
-            </div>
-            <div style={{ marginBottom: 'var(--spacing-sm)' }}>
-              <strong>Current Count:</strong> {count}
-            </div>
-            <div style={{ marginBottom: 'var(--spacing-sm)' }}>
-              <strong>Multiplier:</strong> {multiplier}
-            </div>
-            <div>
-              <strong>Expensive Result:</strong> {expensiveValueWithMemo.toLocaleString()}
-            </div>
+            {count}
           </div>
+          
+          <button
+            onClick={() => setCount(c => c + 1)}
+            style={{
+              padding: 'var(--spacing-md) var(--spacing-xl)',
+              backgroundColor: '#4CAF50',
+              color: 'white',
+              border: 'none',
+              borderRadius: 'var(--radius-md)',
+              fontSize: 'var(--font-size-base)',
+              fontWeight: '600',
+              cursor: 'pointer',
+              transition: 'var(--transition-fast)'
+            }}
+          >
+            Increment & Check Console
+          </button>
         </div>
       </div>
 
       {/* Explanation */}
       <div style={{
         padding: 'var(--spacing-lg)',
-        backgroundColor: '#FFF3E0',
+        backgroundColor: '#FFEBEE',
         borderRadius: 'var(--radius-md)',
-        borderLeft: '4px solid #FF9800'
+        borderLeft: '4px solid #F44336'
       }}>
         <h3 style={{
           fontSize: 'var(--font-size-lg)',
           fontWeight: '600',
-          color: '#E65100',
+          color: '#D32F2F',
           marginBottom: 'var(--spacing-md)'
         }}>
-          🔍 What's Happening?
+          ⚠️ Problem: Expensive Function Runs on Every Render
         </h3>
         <ul style={{
           fontSize: 'var(--font-size-base)',
-          color: '#BF360C',
+          color: '#C62828',
           lineHeight: '1.6',
           paddingLeft: 'var(--spacing-lg)',
           margin: 0
         }}>
           <li style={{ marginBottom: 'var(--spacing-sm)' }}>
-            <strong>Click "Increment Count":</strong> Component re-renders, but useMemo prevents expensive calculation
+            <strong>Every click</strong> triggers a re-render and runs the expensive calculation
           </li>
           <li style={{ marginBottom: 'var(--spacing-sm)' }}>
-            <strong>Click "Change Multiplier":</strong> useMemo dependency changes, so calculation runs
+            <strong>Performance waste:</strong> The calculation result doesn't even depend on the count!
           </li>
           <li>
-            <strong>Check Console:</strong> See exactly when the expensive calculation executes
+            <strong>Solution:</strong> Wrap the expensive calculation in <code>useMemo()</code> to prevent unnecessary re-execution
           </li>
         </ul>
       </div>
