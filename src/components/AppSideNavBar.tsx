@@ -12,7 +12,7 @@ const AppSideNavBar = () => {
     
     // Auto-expand sections if related pages are selected
     const hookPages = ['useEffect', 'useState', 'useRef', 'useContext', 'useMemo', 'useCallback', 'useImperativeHandle'];
-    const conceptPages = ['concepts-overview', 'idempotent-demo', 'props-down-callbacks-up'];
+    const conceptPages = ['concepts-overview', 'framework-comparison', 'idempotent-demo', 'props-down-callbacks-up'];
     
     if (hookPages.includes(page)) {
       setExpandedSections(prev => [...prev.filter(s => s !== 'hooks'), 'hooks']);
@@ -50,6 +50,7 @@ const AppSideNavBar = () => {
 
   const conceptItems = [
     { key: 'concepts-overview', label: 'Overview' },
+    { key: 'framework-comparison', label: 'Framework Comparison' },
     { key: 'idempotent-demo', label: 'Good Clock, Bad Clock' },
     { key: 'props-down-callbacks-up', label: 'Props Down, Callbacks Up' },
   ];

@@ -3,9 +3,9 @@ import { FloatButton } from 'antd';
 import { Sun, Moon } from 'lucide-react';
 import AppSideNavBar from '../components/AppSideNavBar';
 import { useTheme } from '../hooks/useTheme';
-import PageContents from '../pages/PageContents';
 import HomePage from '../pages/HomePage';
 import ConceptsPage from '../pages/concepts/ConceptsPage';
+import FrameworkComparison from '../pages/concepts/FrameworkComparison';
 import IdempotentDemo from '../pages/concepts/IdempotentDemo';
 import PropsDownCallBackUp from '../pages/concepts/PropsDownCallBackUp';
 import UseEffectPage from '../pages/hooks/UseEffectPage';
@@ -41,6 +41,8 @@ const MainLayout = () => {
         return <HomePage />;
       case 'concepts-overview':
         return <ConceptsPage />;
+      case 'framework-comparison':
+        return <FrameworkComparison />;
       case 'idempotent-demo':
         return <IdempotentDemo />;
       case 'props-down-callbacks-up':
@@ -60,7 +62,7 @@ const MainLayout = () => {
       case 'useImperativeHandle':
         return <UseImperativeHandlePage />;
       default:
-        return <PageContents />;
+        return <HomePage />;
     }
   };
 
@@ -161,7 +163,8 @@ const MainLayout = () => {
               backdropFilter: 'blur(20px)',
               WebkitBackdropFilter: 'blur(20px)',
               transition: 'var(--transition-base)',
-              minHeight: 'calc(100vh - 200px)'
+              minHeight: 'calc(100vh - 200px)',
+              alignContent: 'center',
             }}>
               {renderPage()}
             </div>
