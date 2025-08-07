@@ -26,19 +26,8 @@ useEffect(() => {
       <DOMRenderingDemo />
       
       {/* Dependency Array Code Example */}
-      <div style={{
-        padding: 'var(--spacing-lg)',
-        backgroundColor: 'var(--apple-gray-1)',
-        borderRadius: 'var(--radius-md)',
-        border: '1px solid var(--apple-gray-2)',
-        fontFamily: 'var(--font-family-mono)',
-        fontSize: 'var(--font-size-sm)',
-        lineHeight: '1.6',
-        color: 'var(--apple-text-primary)',
-        marginTop: 'var(--spacing-2xl)',
-        marginBottom: 'var(--spacing-lg)'
-      }}>
-        <pre style={{ margin: 0, whiteSpace: 'pre-wrap' }}>
+      <div>
+        <pre>
 {`// No dependency array - runs on every render
 useEffect(() => {
   console.log('Runs on every render');
@@ -58,19 +47,8 @@ useEffect(() => {
       <DependencyArrayModal />
       
       {/* Cleanup Code Example */}
-      <div style={{
-        padding: 'var(--spacing-lg)',
-        backgroundColor: 'var(--apple-gray-1)',
-        borderRadius: 'var(--radius-md)',
-        border: '1px solid var(--apple-gray-2)',
-        fontFamily: 'var(--font-family-mono)',
-        fontSize: 'var(--font-size-sm)',
-        lineHeight: '1.6',
-        color: 'var(--apple-text-primary)',
-        marginTop: 'var(--spacing-2xl)',
-        marginBottom: 'var(--spacing-lg)'
-      }}>
-        <pre style={{ margin: 0, whiteSpace: 'pre-wrap' }}>
+      <div>
+        <pre>
 {`// Timer cleanup example
 useEffect(() => {
   const timer = setInterval(() => {

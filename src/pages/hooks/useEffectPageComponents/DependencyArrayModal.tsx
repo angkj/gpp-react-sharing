@@ -22,111 +22,43 @@ const DependencyArrayDemoContent = () => {
 
   return (
     <div>
-      <div style={{
-        marginBottom: 'var(--spacing-xl)',
-        textAlign: 'center'
-      }}>
-        <h3 style={{
-          fontSize: 'var(--font-size-xl)',
-          fontWeight: '600',
-          color: 'var(--apple-text-primary)',
-          marginBottom: 'var(--spacing-md)'
-        }}>
+      <div>
+        <h3>
           Dependency Array Patterns
         </h3>
-        <p style={{
-          fontSize: 'var(--font-size-base)',
-          color: '#000000',
-          lineHeight: '1.6',
-          margin: 0
-        }}>
+        <p>
           Open your console (F12) to see when each effect executes!
         </p>
       </div>
 
       {/* Controls */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        marginBottom: 'var(--spacing-xl)'
-      }}>
-        <div style={{
-          padding: 'var(--spacing-xl)',
-          backgroundColor: 'var(--apple-gray-1)',
-          borderRadius: 'var(--radius-md)',
-          border: '1px solid var(--apple-separator)',
-          minWidth: '400px'
-        }}>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 'var(--spacing-md)',
-            justifyContent: 'center',
-            marginBottom: 'var(--spacing-lg)'
-          }}>
-            <span style={{ fontSize: 'var(--font-size-base)', color: '#FFFFFF', fontWeight: '600' }}>Count:</span>
-            <span style={{ 
-              fontSize: 'var(--font-size-3xl)', 
-              fontWeight: '700', 
-              color: 'var(--apple-blue)',
-              minWidth: '60px',
-              textAlign: 'center',
-              fontFamily: 'var(--font-family-mono)'
-            }}>
+      <div>
+        <div>
+          <div>
+            <span>Count:</span>
+            <span>
               {count}
             </span>
             <button
               onClick={() => setCount(count + 1)}
-              style={{
-                padding: 'var(--spacing-md) var(--spacing-lg)',
-                backgroundColor: 'var(--apple-blue)',
-                color: 'white',
-                border: 'none',
-                borderRadius: 'var(--radius-md)',
-                fontSize: 'var(--font-size-base)',
-                cursor: 'pointer',
-                fontWeight: '600'
-              }}
             >
               Increment
             </button>
           </div>
           
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 'var(--spacing-md)',
-            justifyContent: 'center'
-          }}>
-            <span style={{ fontSize: 'var(--font-size-base)', color: '#FFFFFF', fontWeight: '600' }}>Name:</span>
+          <div>
+            <span>Name:</span>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              style={{
-                padding: 'var(--spacing-sm)',
-                border: '1px solid var(--apple-separator)',
-                borderRadius: 'var(--radius-sm)',
-                fontSize: 'var(--font-size-base)',
-                minWidth: '150px'
-              }}
             />
           </div>
         </div>
       </div>
 
-      <div style={{
-        padding: 'var(--spacing-lg)',
-        backgroundColor: '#FFF3E0',
-        borderRadius: 'var(--radius-md)',
-        borderLeft: '4px solid #FF9800'
-      }}>
-        <p style={{
-          fontSize: 'var(--font-size-base)',
-          fontWeight: '500',
-          margin: 0,
-          color: '#E65100'
-        }}>
+      <div>
+        <p>
           🎯 <strong>Try This:</strong> Click increment (triggers count dependency) or change the name (doesn't trigger count dependency) and watch the console to see how each useEffect behaves differently!
         </p>
       </div>
@@ -149,44 +81,16 @@ export const DependencyArrayModal = () => {
 
   return (
     <>
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        marginTop: 'var(--spacing-2xl)',
-        marginBottom: 'var(--spacing-lg)'
-      }}>
+      <div>
         <button
           onClick={handleOpen}
-          style={{
-            padding: 'var(--spacing-lg) var(--spacing-2xl)',
-            backgroundColor: 'var(--apple-blue)',
-            color: 'white',
-            border: 'none',
-            borderRadius: 'var(--radius-md)',
-            fontSize: 'var(--font-size-lg)',
-            fontWeight: '600',
-            cursor: 'pointer',
-            transition: 'var(--transition-fast)',
-            boxShadow: '0 4px 12px rgba(0, 122, 255, 0.3)'
-          }}
         >
           🎯 Open Dependency Array Demo
         </button>
       </div>
 
-      <div style={{
-        padding: 'var(--spacing-lg)',
-        backgroundColor: '#E8F5E8',
-        borderRadius: 'var(--radius-md)',
-        borderLeft: '4px solid #4CAF50',
-        marginBottom: 'var(--spacing-xl)'
-      }}>
-        <p style={{
-          fontSize: 'var(--font-size-base)',
-          fontWeight: '500',
-          margin: 0,
-          color: '#2E7D32'
-        }}>
+      <div>
+        <p>
           ✅ <strong>Watch Console:</strong> When you click the button above, the modal opens and the component mounts. You'll see all three useEffect hooks run immediately - demonstrating component lifecycle!
         </p>
       </div>

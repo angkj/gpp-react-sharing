@@ -32,16 +32,11 @@ export const UseCallbackDemo = () => {
           variant: 'error',
           title: '⚠️ Problem: Function Recreated on Every Render',
           content: (
-            <ul style={{
-              fontSize: 'var(--font-size-base)',
-              lineHeight: '1.6',
-              paddingLeft: 'var(--spacing-lg)',
-              margin: 0
-            }}>
-              <li style={{ marginBottom: 'var(--spacing-sm)' }}>
+            <ul>
+              <li>
                 <strong>Every re-render</strong> creates a new function, even if the function logic hasn't changed
               </li>
-              <li style={{ marginBottom: 'var(--spacing-sm)' }}>
+              <li>
                 <strong>Performance waste:</strong> New function references cause unnecessary child component re-renders
               </li>
               <li>

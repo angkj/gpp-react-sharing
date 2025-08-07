@@ -15,7 +15,6 @@ interface UniversalDemoProps {
   }>;
   showCounter?: boolean;
   buttonText?: string;
-  style?: React.CSSProperties;
 }
 
 export const UniversalDemo = ({
@@ -28,28 +27,14 @@ export const UniversalDemo = ({
   children,
   infoBoxes = [],
   showCounter = true,
-  buttonText = "Increment & Check Console",
-  style = {}
+  buttonText = "Increment & Check Console"
 }: UniversalDemoProps) => {
   return (
-    <DemoContainer title={title} style={style}>
-      {description && (
-        <p style={{
-          fontSize: 'var(--font-size-base)',
-          color: 'var(--apple-text-secondary)',
-          lineHeight: '1.6',
-          marginBottom: 'var(--spacing-xl)'
-        }}>
-          {description}
-        </p>
-      )}
+    <DemoContainer title={title}>
+      {description && <p>{description}</p>}
 
       {showCounter && (
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          marginBottom: 'var(--spacing-xl)'
-        }}>
+        <div>
           <CounterDisplay 
             title={counterTitle}
             count={count}
@@ -67,18 +52,13 @@ export const UniversalDemo = ({
         </div>
       )}
 
-      {/* Custom content */}
       {children}
 
-      {/* Info boxes */}
       {infoBoxes.map((box, index) => (
         <InfoBox 
           key={index}
           variant={box.variant}
           title={box.title}
-          style={{ 
-            marginBottom: index < infoBoxes.length - 1 ? 'var(--spacing-md)' : undefined 
-          }}
         >
           {box.content}
         </InfoBox>

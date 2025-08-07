@@ -28,7 +28,6 @@ export const DependencyArrayDemo = () => {
       counterTitle="Interactive Controls"
       counterColor="var(--apple-blue)"
       buttonText="Increment"
-      style={{ marginTop: 'var(--spacing-2xl)' }}
       infoBoxes={[
         {
           variant: 'warning',

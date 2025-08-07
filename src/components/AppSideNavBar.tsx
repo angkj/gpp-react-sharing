@@ -66,79 +66,20 @@ const AppSideNavBar = () => {
   ];
 
   const NavItem = ({ item, isSelected }: { item: { key: string; icon?: React.ReactNode; label: string }, isSelected: boolean }) => (
-    <div
-      onClick={() => handleNavClick(item.key)}
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: 'var(--spacing-sm)',
-        padding: 'var(--spacing-sm) var(--spacing-lg)',
-        margin: '2px var(--spacing-md)',
-        borderRadius: 'var(--radius-sm)',
-        cursor: 'pointer',
-        backgroundColor: isSelected ? 'var(--apple-blue)' : 'transparent',
-        color: isSelected ? 'white' : 'var(--apple-text-primary)',
-        transition: 'var(--transition-fast)',
-        fontSize: 'var(--font-size-base)',
-        fontWeight: '500',
-        userSelect: 'none'
-      }}
-      onMouseEnter={(e) => {
-        if (!isSelected) {
-          e.currentTarget.style.backgroundColor = 'var(--apple-gray-1)';
-        }
-      }}
-      onMouseLeave={(e) => {
-        if (!isSelected) {
-          e.currentTarget.style.backgroundColor = 'transparent';
-        }
-      }}
-    >
-      <div style={{ color: isSelected ? 'rgba(255,255,255,0.9)' : 'var(--apple-text-secondary)' }}>
-        {item.icon}
-      </div>
+    <div onClick={() => handleNavClick(item.key)}>
+      <div>{item.icon}</div>
       <span>{item.label}</span>
     </div>
   );
 
   const HookItem = ({ item, isSelected }: { item: { key: string; label: string }, isSelected: boolean }) => (
-    <div
-      onClick={() => handleNavClick(item.key)}
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        padding: 'var(--spacing-xs) var(--spacing-lg)',
-        marginLeft: 'var(--spacing-2xl)',
-        marginRight: 'var(--spacing-md)',
-        marginBottom: '2px',
-        borderRadius: 'var(--radius-sm)',
-        cursor: 'pointer',
-        backgroundColor: isSelected ? 'var(--apple-blue)' : 'transparent',
-        color: isSelected ? 'white' : 'var(--apple-text-secondary)',
-        transition: 'var(--transition-fast)',
-        fontSize: 'var(--font-size-sm)',
-        fontWeight: '500',
-        userSelect: 'none'
-      }}
-      onMouseEnter={(e) => {
-        if (!isSelected) {
-          e.currentTarget.style.backgroundColor = 'var(--apple-gray-1)';
-          e.currentTarget.style.color = 'var(--apple-text-primary)';
-        }
-      }}
-      onMouseLeave={(e) => {
-        if (!isSelected) {
-          e.currentTarget.style.backgroundColor = 'transparent';
-          e.currentTarget.style.color = 'var(--apple-text-secondary)';
-        }
-      }}
-    >
+    <div onClick={() => handleNavClick(item.key)}>
       <span>{item.label}</span>
     </div>
   );
 
   return (
-    <div style={{ padding: 'var(--spacing-sm) 0' }}>
+    <div>
       {/* Regular menu items */}
       {menuItems.map(item => (
         <NavItem 
@@ -150,48 +91,19 @@ const AppSideNavBar = () => {
 
       {/* Concepts section */}
       <div>
-        <div
-          onClick={() => toggleSection('concepts')}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 'var(--spacing-sm)',
-            padding: 'var(--spacing-sm) var(--spacing-lg)',
-            margin: '2px var(--spacing-md)',
-            borderRadius: 'var(--radius-sm)',
-            cursor: 'pointer',
-            color: 'var(--apple-text-primary)',
-            transition: 'var(--transition-fast)',
-            fontSize: 'var(--font-size-base)',
-            fontWeight: '500',
-            userSelect: 'none'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = 'var(--apple-gray-1)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = 'transparent';
-          }}
-        >
-          <div style={{ color: 'var(--apple-text-secondary)' }}>
+        <div onClick={() => toggleSection('concepts')}>
+          <div>
             <BookOpen size={18} />
           </div>
-          <span style={{ flex: 1 }}>Concepts</span>
-          <div style={{ 
-            color: 'var(--apple-text-tertiary)',
-            transition: 'var(--transition-fast)',
-            transform: expandedSections.includes('concepts') ? 'rotate(0deg)' : 'rotate(-90deg)'
-          }}>
+          <span>Concepts</span>
+          <div>
             <ChevronDown size={16} />
           </div>
         </div>
 
         {/* Concept items */}
         {expandedSections.includes('concepts') && (
-          <div style={{
-            marginTop: 'var(--spacing-xs)',
-            marginBottom: 'var(--spacing-sm)'
-          }}>
+          <div>
             {conceptItems.map(item => (
               <HookItem 
                 key={item.key} 
@@ -205,48 +117,19 @@ const AppSideNavBar = () => {
 
       {/* Hooks section */}
       <div>
-        <div
-          onClick={() => toggleSection('hooks')}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 'var(--spacing-sm)',
-            padding: 'var(--spacing-sm) var(--spacing-lg)',
-            margin: '2px var(--spacing-md)',
-            borderRadius: 'var(--radius-sm)',
-            cursor: 'pointer',
-            color: 'var(--apple-text-primary)',
-            transition: 'var(--transition-fast)',
-            fontSize: 'var(--font-size-base)',
-            fontWeight: '500',
-            userSelect: 'none'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = 'var(--apple-gray-1)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = 'transparent';
-          }}
-        >
-          <div style={{ color: 'var(--apple-text-secondary)' }}>
+        <div onClick={() => toggleSection('hooks')}>
+          <div>
             <Code size={18} />
           </div>
-          <span style={{ flex: 1 }}>Hooks</span>
-          <div style={{ 
-            color: 'var(--apple-text-tertiary)',
-            transition: 'var(--transition-fast)',
-            transform: expandedSections.includes('hooks') ? 'rotate(0deg)' : 'rotate(-90deg)'
-          }}>
+          <span>Hooks</span>
+          <div>
             <ChevronDown size={16} />
           </div>
         </div>
 
         {/* Hook items */}
         {expandedSections.includes('hooks') && (
-          <div style={{
-            marginTop: 'var(--spacing-xs)',
-            marginBottom: 'var(--spacing-sm)'
-          }}>
+          <div>
             {hookItems.map(item => (
               <HookItem 
                 key={item.key} 

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep:*)",
+      "Bash(cp:*)",
+      "Bash(# Use sed to remove all inline styles from the file\n# This removes style={{ ... }} patterns, handling multi-line styles\nsed -i '''' '':a;N;$!ba;s/style={{[^}]*}}/>/g'' src/pages/hooks/UseRefPage.tsx)"
+    ],
+    "deny": []
+  }
+}

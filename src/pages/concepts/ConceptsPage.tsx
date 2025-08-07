@@ -1,76 +1,30 @@
 const ConceptsPage = () => {
   return (
-    <div style={{ 
-      maxWidth: '900px',
-      animation: 'fadeInUp 0.6s ease-out'
-    }}>
-      <div style={{ marginBottom: 'var(--spacing-3xl)' }}>
-        <h1 style={{
-          fontSize: 'var(--font-size-4xl)',
-          fontWeight: '700',
-          color: 'var(--apple-text-primary)',
-          marginBottom: 'var(--spacing-lg)',
-          letterSpacing: '-0.5px'
-        }}>
+    <div>
+      <div>
+        <h1>
           React Concepts
         </h1>
-        <p style={{
-          fontSize: 'var(--font-size-lg)',
-          color: 'var(--apple-text-secondary)',
-          lineHeight: '1.6',
-          fontWeight: '400'
-        }}>
+        <p>
           Master the fundamental concepts that power modern React applications
         </p>
       </div>
 
-      <div style={{
-        padding: 'var(--spacing-2xl)',
-        backgroundColor: 'var(--apple-background)',
-        borderRadius: 'var(--radius-lg)',
-        border: '1px solid var(--apple-separator)',
-        boxShadow: '0 4px 16px var(--apple-shadow)',
-        marginBottom: 'var(--spacing-2xl)'
-      }}>
-        <h2 style={{
-          fontSize: 'var(--font-size-2xl)',
-          fontWeight: '600',
-          color: 'var(--apple-text-primary)',
-          marginBottom: 'var(--spacing-lg)'
-        }}>
+      <div>
+        <h2>
           What is React?
         </h2>
-        <p style={{
-          fontSize: 'var(--font-size-base)',
-          color: 'var(--apple-text-secondary)',
-          lineHeight: '1.7',
-          marginBottom: 0
-        }}>
+        <p>
           React is a powerful JavaScript library for building user interfaces. It enables developers to create reusable UI components and manage application state efficiently, making complex applications more maintainable and performant.
         </p>
       </div>
 
-      <div style={{
-        padding: 'var(--spacing-2xl)',
-        backgroundColor: 'var(--apple-background)',
-        borderRadius: 'var(--radius-lg)',
-        border: '1px solid var(--apple-separator)',
-        boxShadow: '0 4px 16px var(--apple-shadow)',
-        marginBottom: 'var(--spacing-2xl)'
-      }}>
-        <h2 style={{
-          fontSize: 'var(--font-size-2xl)',
-          fontWeight: '600',
-          color: 'var(--apple-text-primary)',
-          marginBottom: 'var(--spacing-xl)'
-        }}>
+      <div>
+        <h2>
           Core Concepts
         </h2>
         
-        <div style={{
-          display: 'grid',
-          gap: 'var(--spacing-lg)'
-        }}>
+        <div>
           {[
             {
               title: 'Components',
@@ -95,28 +49,11 @@ const ConceptsPage = () => {
           ].map((concept, index) => (
             <div 
               key={index}
-              style={{
-                padding: 'var(--spacing-lg)',
-                backgroundColor: 'var(--apple-gray-1)',
-                borderRadius: 'var(--radius-md)',
-                border: '1px solid var(--apple-gray-2)',
-                transition: 'var(--transition-base)'
-              }}
             >
-              <h3 style={{
-                fontSize: 'var(--font-size-lg)',
-                fontWeight: '600',
-                color: 'var(--apple-text-primary)',
-                marginBottom: 'var(--spacing-sm)'
-              }}>
+              <h3>
                 {concept.title}
               </h3>
-              <p style={{
-                fontSize: 'var(--font-size-base)',
-                color: 'var(--apple-text-secondary)',
-                lineHeight: '1.6',
-                marginBottom: 0
-              }}>
+              <p>
                 {concept.description}
               </p>
             </div>
@@ -124,26 +61,12 @@ const ConceptsPage = () => {
         </div>
       </div>
 
-      <div style={{
-        padding: 'var(--spacing-2xl)',
-        backgroundColor: 'var(--apple-background)',
-        borderRadius: 'var(--radius-lg)',
-        border: '1px solid var(--apple-separator)',
-        boxShadow: '0 4px 16px var(--apple-shadow)'
-      }}>
-        <h2 style={{
-          fontSize: 'var(--font-size-2xl)',
-          fontWeight: '600',
-          color: 'var(--apple-text-primary)',
-          marginBottom: 'var(--spacing-xl)'
-        }}>
+      <div>
+        <h2>
           Rules of React
         </h2>
         
-        <div style={{
-          display: 'grid',
-          gap: 'var(--spacing-lg)'
-        }}>
+        <div>
           {[
             {
               title: '🔧 Components Must Be Pure',
@@ -160,82 +83,34 @@ const ConceptsPage = () => {
           ].map((rule, index) => (
             <div 
               key={index}
-              style={{
-                padding: 'var(--spacing-lg)',
-                backgroundColor: 'var(--apple-gray-1)',
-                borderRadius: 'var(--radius-md)',
-                border: '1px solid var(--apple-gray-2)',
-                transition: 'var(--transition-base)'
-              }}
             >
-              <h3 style={{
-                fontSize: 'var(--font-size-lg)',
-                fontWeight: '600',
-                color: 'var(--apple-text-primary)',
-                marginBottom: 'var(--spacing-sm)'
-              }}>
+              <h3>
                 {rule.title}
               </h3>
-              <p style={{
-                fontSize: 'var(--font-size-base)',
-                color: 'var(--apple-text-secondary)',
-                lineHeight: '1.6',
-                marginBottom: 0
-              }}>
+              <p>
                 {rule.description}
               </p>
             </div>
           ))}
         </div>
         
-        <div style={{
-          marginTop: 'var(--spacing-xl)',
-          padding: 'var(--spacing-lg)',
-          backgroundColor: 'var(--apple-blue)',
-          borderRadius: 'var(--radius-md)',
-          color: 'white'
-        }}>
-          <p style={{
-            fontSize: 'var(--font-size-base)',
-            fontWeight: '500',
-            margin: 0,
-            textAlign: 'center'
-          }}>
+        <div>
+          <p>
             💡 <strong>Key Takeaway:</strong> Following these rules prevents bugs and makes your React apps more predictable and maintainable.
           </p>
         </div>
       </div>
 
-      <div style={{
-        padding: 'var(--spacing-2xl)',
-        backgroundColor: 'var(--apple-background)',
-        borderRadius: 'var(--radius-lg)',
-        border: '1px solid var(--apple-separator)',
-        boxShadow: '0 4px 16px var(--apple-shadow)',
-        marginTop: 'var(--spacing-2xl)'
-      }}>
-        <h2 style={{
-          fontSize: 'var(--font-size-2xl)',
-          fontWeight: '600',
-          color: 'var(--apple-text-primary)',
-          marginBottom: 'var(--spacing-lg)'
-        }}>
+      <div>
+        <h2>
           🪝 Hook Rules in Detail
         </h2>
         
-        <p style={{
-          fontSize: 'var(--font-size-base)',
-          color: 'var(--apple-text-secondary)',
-          lineHeight: '1.6',
-          marginBottom: 'var(--spacing-xl)'
-        }}>
+        <p>
           Hooks (functions starting with "use") have strict usage rules. Here's where you <strong>cannot</strong> call them:
         </p>
 
-        <div style={{
-          display: 'grid',
-          gap: 'var(--spacing-md)'
-        }}>
+        <div>
           {[
             'Do not call Hooks inside conditions or loops',
             'Do not call Hooks after a conditional return statement', 
@@ -246,65 +121,24 @@ const ConceptsPage = () => {
           ].map((rule, index) => (
             <div 
               key={index}
-              style={{
-                display: 'flex',
-                alignItems: 'flex-start',
-                gap: 'var(--spacing-sm)',
-                padding: 'var(--spacing-md)',
-                backgroundColor: '#FFEBEE',
-                borderRadius: 'var(--radius-sm)',
-                border: '1px solid #FFCDD2'
-              }}
             >
-              <span style={{
-                color: '#F44336',
-                fontSize: 'var(--font-size-lg)',
-                fontWeight: '700',
-                minWidth: '20px'
-              }}>
+              <span>
                 🔴
               </span>
-              <span style={{
-                fontSize: 'var(--font-size-base)',
-                color: '#C62828',
-                fontWeight: '500'
-              }}>
+              <span>
                 {rule}
               </span>
             </div>
           ))}
         </div>
 
-        <div style={{
-          marginTop: 'var(--spacing-xl)',
-          padding: 'var(--spacing-lg)',
-          backgroundColor: '#E8F5E8',
-          borderRadius: 'var(--radius-md)',
-          borderLeft: '4px solid #4CAF50'
-        }}>
-          <p style={{
-            fontSize: 'var(--font-size-base)',
-            fontWeight: '500',
-            margin: 0,
-            color: '#2E7D32'
-          }}>
+        <div>
+          <p>
             ✅ <strong>Remember:</strong> Always call Hooks at the top level of your React functions, in the same order, every time.
           </p>
         </div>
       </div>
 
-      <style>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </div>
   );
 };

@@ -29,31 +29,16 @@ const TimerComponent = () => {
   }, []);
 
   return (
-    <div style={{ textAlign: 'center' }}>
-      <h3 style={{
-        fontSize: 'var(--font-size-xl)',
-        fontWeight: '600',
-        color: '#2E7D32',
-        marginBottom: 'var(--spacing-lg)'
-      }}>
+    <div>
+      <h3>
         🕐 Active Timer
       </h3>
       
-      <div style={{
-        fontSize: 'var(--font-size-4xl)',
-        fontWeight: '700',
-        color: '#1B5E20',
-        marginBottom: 'var(--spacing-lg)',
-        fontFamily: 'var(--font-family-mono)'
-      }}>
+      <div>
         {seconds}s
       </div>
       
-      <div style={{
-        fontSize: 'var(--font-size-base)',
-        color: '#388E3C',
-        fontStyle: 'italic'
-      }}>
+      <div>
         Timer updates every second via setInterval
       </div>
     </div>
@@ -75,47 +60,27 @@ export const CleanupDemo = () => {
   };
 
   return (
-    <DemoContainer title="useEffect Cleanup Demo" style={{ marginTop: 'var(--spacing-2xl)' }}>
-      <p style={{
-        fontSize: 'var(--font-size-base)',
-        color: 'var(--apple-text-secondary)',
-        lineHeight: '1.6',
-        marginBottom: 'var(--spacing-xl)'
-      }}>
+    <DemoContainer title="useEffect Cleanup Demo">
+      <p>
         Open the modal to mount the timer component, then close it to see cleanup in action. Open your console (F12) to watch the cleanup process!
       </p>
 
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        marginBottom: 'var(--spacing-xl)'
-      }}>
-        <div style={{ textAlign: 'center' }}>
+      <div>
+        <div>
           <Button
             variant="success"
             size="lg"
             onClick={handleOpenTimer}
-            style={{
-              boxShadow: '0 4px 12px rgba(76, 175, 80, 0.3)',
-              marginBottom: 'var(--spacing-md)'
-            }}
           >
             ⏰ Open Timer Cleanup Demo
           </Button>
-          <div style={{
-            fontSize: 'var(--font-size-sm)',
-            color: 'var(--apple-text-secondary)',
-            fontStyle: 'italic'
-          }}>
+          <div>
             setInterval cleanup example
           </div>
         </div>
       </div>
 
-      <div style={{
-        display: 'grid',
-        gap: 'var(--spacing-md)'
-      }}>
+      <div>
         <InfoBox variant="success">
           ✅ <strong>Watch Console:</strong> When you open the modal, the timer component mounts and starts ticking. When you close the modal, the cleanup function should run and stop the timer!
         </InfoBox>

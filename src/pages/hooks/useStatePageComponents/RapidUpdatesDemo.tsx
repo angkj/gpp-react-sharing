@@ -28,23 +28,12 @@ export const RapidUpdatesDemo = () => {
   return (
     <DemoContainer 
       title="Rapid Updates Demo: Direct vs Functional"
-      style={{ marginTop: 'var(--spacing-2xl)' }}
     >
-      <p style={{
-        fontSize: 'var(--font-size-base)',
-        color: 'var(--apple-text-secondary)',
-        lineHeight: '1.6',
-        marginBottom: 'var(--spacing-xl)'
-      }}>
+      <p>
         Both buttons call setState 5 times rapidly. See which approach works correctly!
       </p>
 
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: 'var(--spacing-xl)',
-        marginBottom: 'var(--spacing-xl)'
-      }}>
+      <div>
         <ComparisonCounter
           variant="error"
           title="Direct Updates"

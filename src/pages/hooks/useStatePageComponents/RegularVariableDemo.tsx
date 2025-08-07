@@ -12,48 +12,25 @@ export const RegularVariableCounter = () => {
   };
 
   return (
-    <div style={{
-      padding: 'var(--spacing-lg)',
-      backgroundColor: '#FFEBEE',
-      borderRadius: 'var(--radius-md)',
-      border: '2px solid #F44336',
-      textAlign: 'center'
-    }}>
+    <div>
       <Badge variant="error">❌ WRONG WAY</Badge>
       
-      <h3 style={{
-        fontSize: 'var(--font-size-lg)',
-        fontWeight: '600',
-        color: '#C62828',
-        marginBottom: 'var(--spacing-md)'
-      }}>
+      <h3>
         Regular Variable
       </h3>
       
-      <div style={{
-        fontSize: 'var(--font-size-3xl)',
-        fontWeight: '700',
-        color: '#B71C1C',
-        marginBottom: 'var(--spacing-lg)',
-        fontFamily: 'var(--font-family-mono)'
-      }}>
+      <div>
         {count}
       </div>
       
       <Button 
         variant="error" 
         onClick={increment}
-        style={{ marginBottom: 'var(--spacing-md)' }}
       >
         Click Me! (Check Console)
       </Button>
       
-      <p style={{
-        fontSize: 'var(--font-size-sm)',
-        color: '#D32F2F',
-        margin: 0,
-        fontStyle: 'italic'
-      }}>
+      <p>
         UI never updates, but check the console!
       </p>
     </div>
@@ -71,48 +48,25 @@ export const UseStateCounter = () => {
   };
 
   return (
-    <div style={{
-      padding: 'var(--spacing-lg)',
-      backgroundColor: '#E8F5E8',
-      borderRadius: 'var(--radius-md)',
-      border: '2px solid #4CAF50',
-      textAlign: 'center'
-    }}>
+    <div>
       <Badge variant="success">✅ RIGHT WAY</Badge>
       
-      <h3 style={{
-        fontSize: 'var(--font-size-lg)',
-        fontWeight: '600',
-        color: '#2E7D32',
-        marginBottom: 'var(--spacing-md)'
-      }}>
+      <h3>
         useState Hook
       </h3>
       
-      <div style={{
-        fontSize: 'var(--font-size-3xl)',
-        fontWeight: '700',
-        color: '#1B5E20',
-        marginBottom: 'var(--spacing-lg)',
-        fontFamily: 'var(--font-family-mono)'
-      }}>
+      <div>
         {count}
       </div>
       
       <Button 
         variant="success" 
         onClick={increment}
-        style={{ marginBottom: 'var(--spacing-md)' }}
       >
         Click Me! (UI Updates)
       </Button>
       
-      <p style={{
-        fontSize: 'var(--font-size-sm)',
-        color: '#388E3C',
-        margin: 0,
-        fontStyle: 'italic'
-      }}>
+      <p>
         UI updates automatically on every click!
       </p>
     </div>
@@ -122,19 +76,13 @@ export const UseStateCounter = () => {
 export const WhyNotRegularVariablesDemo = () => {
   return (
     <DemoContainer title="Why Not Regular Variables?">
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: 'var(--spacing-xl)',
-        marginBottom: 'var(--spacing-xl)'
-      }}>
+      <div>
         <RegularVariableCounter />
         <UseStateCounter />
       </div>
 
       <InfoBox 
-        variant="info" 
-        style={{ marginBottom: 'var(--spacing-lg)' }}
+        variant="info"
       >
         🎯 <strong>Try This:</strong> Click both buttons multiple times and notice the difference! Open your browser's developer console to see both components logging their values.
       </InfoBox>

@@ -33,16 +33,11 @@ export const UseMemoDemo = () => {
           variant: 'error',
           title: '⚠️ Problem: Expensive Function Runs on Every Render',
           content: (
-            <ul style={{
-              fontSize: 'var(--font-size-base)',
-              lineHeight: '1.6',
-              paddingLeft: 'var(--spacing-lg)',
-              margin: 0
-            }}>
-              <li style={{ marginBottom: 'var(--spacing-sm)' }}>
+            <ul>
+              <li>
                 <strong>Every click</strong> triggers a re-render and runs the expensive calculation
               </li>
-              <li style={{ marginBottom: 'var(--spacing-sm)' }}>
+              <li>
                 <strong>Performance waste:</strong> The calculation result doesn't even depend on the count!
               </li>
               <li>
