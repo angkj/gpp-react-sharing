@@ -5,7 +5,6 @@ import AppSideNavBar from '../components/AppSideNavBar';
 import { useTheme } from '../hooks/useTheme';
 import HomePage from '../pages/HomePage';
 import ConceptsPage from '../pages/concepts/ConceptsPage';
-import FrameworkComparison from '../pages/concepts/FrameworkComparison';
 import IdempotentDemo from '../pages/concepts/IdempotentDemo';
 import PropsDownCallBackUp from '../pages/concepts/PropsDownCallBackUp';
 import UseEffectPage from '../pages/hooks/UseEffectPage';
@@ -42,7 +41,7 @@ const MainLayout = () => {
       case 'concepts-overview':
         return <ConceptsPage />;
       case 'framework-comparison':
-        return <FrameworkComparison />;
+        return <ConceptsPage />;
       case 'idempotent-demo':
         return <IdempotentDemo />;
       case 'props-down-callbacks-up':
@@ -67,31 +66,26 @@ const MainLayout = () => {
   };
 
   return (
-    <div>
-      <header>
-        <div>
-          <img src={reactLogo} alt="React" />
-          <h1>
-            React 101
-          </h1>
-        </div>
-      </header>
-
-      <div>
-        <div>
-          <div>
+    <div className="min-h-screen bg-gray-50">
+      
+      <div className="flex h-[calc(100vh-4rem)]">
+        {/* Sidebar */}
+        <div className="w-64 flex-shrink-0">
+          <div className="h-full">
             <AppSideNavBar />
           </div>
         </div>
 
-        <div>
-          <div>
-            <div>
+        {/* Main content */}
+        <div className="flex-1 overflow-hidden">
+          <div className="h-full overflow-y-auto">
+            <div className="max-w-6xl mx-auto p-6">
               {renderPage()}
             </div>
           </div>
         </div>
       </div>
+      
       <FloatButton
         icon={theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
         onClick={toggleTheme}

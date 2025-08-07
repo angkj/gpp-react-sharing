@@ -50,7 +50,6 @@ const AppSideNavBar = () => {
 
   const conceptItems = [
     { key: 'concepts-overview', label: 'Overview' },
-    { key: 'framework-comparison', label: 'Framework Comparison' },
     { key: 'idempotent-demo', label: 'Good Clock, Bad Clock' },
     { key: 'props-down-callbacks-up', label: 'Props Down, Callbacks Up' },
   ];
@@ -66,79 +65,101 @@ const AppSideNavBar = () => {
   ];
 
   const NavItem = ({ item, isSelected }: { item: { key: string; icon?: React.ReactNode; label: string }, isSelected: boolean }) => (
-    <div onClick={() => handleNavClick(item.key)}>
-      <div>{item.icon}</div>
-      <span>{item.label}</span>
+    <div 
+      onClick={() => handleNavClick(item.key)}
+      className={`flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer transition-all duration-200 hover:bg-blue-50 ${
+        isSelected 
+          ? 'bg-blue-100 text-blue-700 border-r-2 border-blue-500' 
+          : 'text-gray-700 hover:text-blue-600'
+      }`}
+    >
+      <div className="flex-shrink-0">{item.icon}</div>
+      <span className="font-medium">{item.label}</span>
     </div>
   );
 
   const HookItem = ({ item, isSelected }: { item: { key: string; label: string }, isSelected: boolean }) => (
-    <div onClick={() => handleNavClick(item.key)}>
-      <span>{item.label}</span>
+    <div 
+      onClick={() => handleNavClick(item.key)}
+      className={`flex items-center px-8 py-2 rounded-lg cursor-pointer transition-all duration-200 hover:bg-gray-50 ${
+        isSelected 
+          ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-400' 
+          : 'text-gray-600 hover:text-blue-600'
+      }`}
+    >
+      <span className="text-sm font-medium">{item.label}</span>
     </div>
   );
 
   return (
-    <div>
-      {/* Regular menu items */}
-      {menuItems.map(item => (
-        <NavItem 
-          key={item.key} 
-          item={item} 
-          isSelected={selectedPage === item.key} 
-        />
-      ))}
+    <div className="h-full bg-white border-r border-gray-200 overflow-y-auto">
+      <div className="p-4 space-y-2">
+        {/* Regular menu items */}
+        {menuItems.map(item => (
+          <NavItem 
+            key={item.key} 
+            item={item} 
+            isSelected={selectedPage === item.key} 
+          />
+        ))}
 
-      {/* Concepts section */}
-      <div>
-        <div onClick={() => toggleSection('concepts')}>
-          <div>
-            <BookOpen size={18} />
+        {/* Concepts section */}
+        <div className="mt-6">
+          <div 
+            onClick={() => toggleSection('concepts')}
+            className="flex items-center justify-between px-4 py-3 rounded-lg cursor-pointer transition-all duration-200 hover:bg-gray-50"
+          >
+            <div className="flex items-center gap-3">
+              <BookOpen size={18} className="text-gray-600" />
+              <span className="font-medium text-gray-700">Concepts</span>
+            </div>
+            <div className={`transition-transform duration-200 ${expandedSections.includes('concepts') ? 'rotate-180' : ''}`}>
+              <ChevronDown size={16} className="text-gray-500" />
+            </div>
           </div>
-          <span>Concepts</span>
-          <div>
-            <ChevronDown size={16} />
-          </div>
+
+          {/* Concept items */}
+          {expandedSections.includes('concepts') && (
+            <div className="mt-2 space-y-1">
+              {conceptItems.map(item => (
+                <HookItem 
+                  key={item.key} 
+                  item={item} 
+                  isSelected={selectedPage === item.key} 
+                />
+              ))}
+            </div>
+          )}
         </div>
 
-        {/* Concept items */}
-        {expandedSections.includes('concepts') && (
-          <div>
-            {conceptItems.map(item => (
-              <HookItem 
-                key={item.key} 
-                item={item} 
-                isSelected={selectedPage === item.key} 
-              />
-            ))}
+        {/* Hooks section */}
+        <div className="mt-4">
+          <div 
+            onClick={() => toggleSection('hooks')}
+            className="flex items-center justify-between px-4 py-3 rounded-lg cursor-pointer transition-all duration-200 hover:bg-gray-50"
+          >
+            <div className="flex items-center gap-3">
+              <Code size={18} className="text-gray-600" />
+              <span className="font-medium text-gray-700">Hooks</span>
+            </div>
+            <div className={`transition-transform duration-200 ${expandedSections.includes('hooks') ? 'rotate-180' : ''}`}>
+              <ChevronDown size={16} className="text-gray-500" />
+            </div>
           </div>
-        )}
-      </div>
 
-      {/* Hooks section */}
-      <div>
-        <div onClick={() => toggleSection('hooks')}>
-          <div>
-            <Code size={18} />
-          </div>
-          <span>Hooks</span>
-          <div>
-            <ChevronDown size={16} />
-          </div>
+          {/* Hook items */}
+          {expandedSections.includes('hooks') && (
+            <div className="mt-2 space-y-1">
+              {hookItems.map(item => (
+                <HookItem 
+                  key={item.key} 
+                  item={item} 
+                  isSelected={selectedPage === item.key} 
+                />
+              ))}
+            </div>
+          )}
         </div>
-
-        {/* Hook items */}
-        {expandedSections.includes('hooks') && (
-          <div>
-            {hookItems.map(item => (
-              <HookItem 
-                key={item.key} 
-                item={item} 
-                isSelected={selectedPage === item.key} 
-              />
-            ))}
-          </div>
-        )}
       </div>
     </div>
   );
