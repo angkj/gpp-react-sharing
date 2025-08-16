@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Container from '../shared/components/Container';
+import { MainTitle } from '../shared/components/MainTitle';
 
 // Good Clock - Pure Component (always returns same output for same props)
 const GoodClock = () => {
@@ -44,15 +46,6 @@ const GoodClock = () => {
       }}>
         {time.toLocaleTimeString()}
       </div>
-      
-      <p style={{
-        fontSize: 'var(--font-size-sm)',
-        color: '#388E3C',
-        margin: 0,
-        fontStyle: 'italic'
-      }}>
-        "I always return the same time for the same input!"
-      </p>
     </div>
   );
 };
@@ -103,15 +96,6 @@ const BadClock = () => {
       }}>
         {currentTime.toLocaleTimeString()}
       </div>
-      
-      <p style={{
-        fontSize: 'var(--font-size-sm)',
-        color: '#D32F2F',
-        margin: 0,
-        fontStyle: 'italic'
-      }}>
-        "I create different times on every render!"
-      </p>
     </div>
   );
 };
@@ -120,21 +104,9 @@ const IdempotentDemo = () => {
   const [, setCount] = useState(0);
 
   return (
-    <div style={{ 
-      maxWidth: '1000px',
-      animation: 'fadeInUp 0.6s ease-out'
-    }}>
-      <div style={{ marginBottom: 'var(--spacing-3xl)' }}>
-        <h1 style={{
-          fontSize: 'var(--font-size-4xl)',
-          fontWeight: '700',
-          color: 'var(--apple-text-primary)',
-          marginBottom: 'var(--spacing-lg)',
-          letterSpacing: '-0.5px',
-          textAlign: 'center'
-        }}>
-          Good Clock, Bad Clock 🕐
-        </h1>
+    <Container>
+      <div>
+        <MainTitle title="Good Clock, Bad Clock" />
         <p style={{
           fontSize: 'var(--font-size-lg)',
           color: 'var(--apple-text-secondary)',
@@ -148,12 +120,8 @@ const IdempotentDemo = () => {
 
       {/* Control Panel */}
       <div style={{
-        padding: 'var(--spacing-xl)',
         backgroundColor: 'var(--apple-background)',
-        borderRadius: 'var(--radius-lg)',
-        border: '1px solid var(--apple-separator)',
-        boxShadow: '0 4px 16px var(--apple-shadow)',
-        marginBottom: 'var(--spacing-2xl)',
+        marginBottom: 'var(--spacing-md)',
         textAlign: 'center'
       }}>
         <button
@@ -180,7 +148,7 @@ const IdempotentDemo = () => {
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
         gap: 'var(--spacing-xl)',
-        marginBottom: 'var(--spacing-2xl)'
+        marginBottom: 'var(--spacing-xl)'
       }}>
         <GoodClock />
         <BadClock />
@@ -188,7 +156,7 @@ const IdempotentDemo = () => {
 
       {/* Explanation */}
       <div style={{
-        padding: 'var(--spacing-2xl)',
+        padding: 'var(--spacing-xl)',
         backgroundColor: 'var(--apple-background)',
         borderRadius: 'var(--radius-lg)',
         border: '1px solid var(--apple-separator)',
@@ -250,38 +218,8 @@ const IdempotentDemo = () => {
             </ul>
           </div>
         </div>
-
-        <div style={{
-          marginTop: 'var(--spacing-xl)',
-          padding: 'var(--spacing-lg)',
-          backgroundColor: '#FFF3E0',
-          borderRadius: 'var(--radius-md)',
-          borderLeft: '4px solid #FF9800'
-        }}>
-          <p style={{
-            fontSize: 'var(--font-size-base)',
-            fontWeight: '500',
-            margin: 0,
-            color: '#E65100'
-          }}>
-            💡 <strong>Remember:</strong> Pure components are the "good cops" of React - they're predictable, reliable, and make your app perform better!
-          </p>
-        </div>
       </div>
-
-      <style>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
-    </div>
+    </Container>
   );
 };
 

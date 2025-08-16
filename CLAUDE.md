@@ -95,6 +95,7 @@ The `/src/shared/components/` directory contains a sophisticated design system w
 ## Design System & Styling
 
 ### Apple-Inspired Design System (`/src/index.css`)
+
 - **40+ CSS Custom Properties** for colors, typography, spacing
 - **Complete Light/Dark Mode** support with automatic switching
 - **Typography Scale**: 9-tier font system with Apple system fonts
@@ -103,6 +104,7 @@ The `/src/shared/components/` directory contains a sophisticated design system w
 - **Animations**: 3-tier transition system (0.15s to 0.35s)
 
 ### Font Standardization
+
 - **Primary Font**: `--font-family-primary` (Apple system fonts)
 - **Monospace Font**: `--font-family-mono` (SF Mono, Monaco, etc.)
 - **Consistent Usage**: All counters use monospace, all UI text uses system font
@@ -111,14 +113,16 @@ The `/src/shared/components/` directory contains a sophisticated design system w
 ## Theme System
 
 ### Architecture
+
 - **ThemeContext.tsx**: Type-safe context definition
 - **ThemeContextProvider.tsx**: Provider with localStorage persistence
 - **useTheme.ts**: Custom hook with error boundaries
 - **Dynamic Updates**: CSS custom properties update automatically
 
 ### Features
+
 - **Persistence**: Saves to localStorage
-- **System Detection**: Respects OS color scheme preference  
+- **System Detection**: Respects OS color scheme preference
 - **Floating Toggle**: Ant Design FloatButton with custom styling
 - **20+ Variables**: Comprehensive color system that updates dynamically
 
@@ -133,12 +137,14 @@ The `/src/shared/components/` directory contains a sophisticated design system w
 ## Development & Build
 
 ### Modern Build Pipeline
+
 - **Vite**: Fast development server with instant HMR
 - **TypeScript Compilation**: Happens before Vite build step
 - **ESLint**: React hooks plugin with modern flat config
 - **Production Optimization**: Tree shaking, code splitting, minification
 
 ### Code Quality Standards
+
 - **TypeScript Strict Mode**: Full type checking enabled
 - **ESLint Rules**: React hooks linting, refresh plugin integration
 - **Consistent Formatting**: Standardized across all components
@@ -147,18 +153,21 @@ The `/src/shared/components/` directory contains a sophisticated design system w
 ## Architecture Patterns
 
 ### Component Organization
+
 - **Page Components**: Route-level components in `/pages/`
 - **Feature Components**: Page-specific components in subdirectories
 - **Shared Library**: Reusable UI components in `/shared/components/`
 - **Layout System**: Structural components in `/layouts/`
 
 ### Educational Focus
+
 - **Interactive Demos**: Every concept has hands-on demonstrations
 - **Comparison Components**: Side-by-side right vs wrong examples
 - **Console Integration**: Educational logging for learning purposes
 - **Progressive Complexity**: From basic concepts to advanced patterns
 
 ### Navigation System
+
 - **Client-Side Routing**: URL parameter-based navigation
 - **State Synchronization**: URL sync with component state
 - **Expandable Sections**: Collapsible navigation groups (Hooks, Concepts)
@@ -167,18 +176,21 @@ The `/src/shared/components/` directory contains a sophisticated design system w
 ## Best Practices
 
 ### Component Development
+
 - **Always use shared components** when possible instead of creating new ones
 - **Import from shared/components index** for centralized access
 - **Use CSS custom properties** instead of hardcoded values
 - **Follow TypeScript patterns** established in existing components
 
 ### Styling Guidelines
+
 - **Use design system variables** for consistency
 - **Prefer CSS custom properties** over hardcoded colors/sizes
 - **Monospace font for counters/code**, system font for UI text
 - **Follow Apple design principles** for spacing and typography
 
 ### Demo Creation
+
 - **Use UniversalDemo** for standard interactive demonstrations
 - **Use ComparisonCounter** for side-by-side comparisons
 - **Include console logging** for educational value
@@ -189,6 +201,7 @@ The `/src/shared/components/` directory contains a sophisticated design system w
 This application serves as a comprehensive interactive learning platform for React concepts, designed with modern pedagogical principles and structured curriculum progression.
 
 ### Core Learning Philosophy
+
 - **Experiential Learning**: Students learn by doing and seeing immediate results
 - **Problem-First Approach**: Demonstrates why patterns matter by showing problems they solve
 - **Gradual Complexity**: Builds from basic concepts to advanced optimization patterns
@@ -198,6 +211,7 @@ This application serves as a comprehensive interactive learning platform for Rea
 ### Teaching Curriculum Structure
 
 #### **Beginner Level: React Fundamentals**
+
 1. **Component Basics** - Reusable UI pieces with props and state
 2. **JSX Syntax** - HTML-like syntax in JavaScript for intuitive development
 3. **Props vs State** - Data flow patterns and when to use each
@@ -205,6 +219,7 @@ This application serves as a comprehensive interactive learning platform for Rea
 5. **Props Down, Callbacks Up** - Component communication patterns
 
 #### **Intermediate Level: Side Effects & Lifecycle**
+
 6. **useEffect Hook** - Side effect management and component lifecycle
    - Three dependency array patterns (none, empty, with deps)
    - DOM updates and render timing
@@ -213,6 +228,7 @@ This application serves as a comprehensive interactive learning platform for Rea
 8. **useRef Hook** - DOM access and mutable values without re-renders
 
 #### **Advanced Level: Performance & Optimization**
+
 9. **useMemo Hook** - Expensive calculation memoization
 10. **useCallback Hook** - Function reference stability
 11. **Memory Management** - Timer cleanup, subscription management
@@ -222,19 +238,22 @@ This application serves as a comprehensive interactive learning platform for Rea
 ### Specific Learning Objectives by Hook
 
 #### **useState Teaching Goals**
+
 - **State vs Variables**: Why regular variables don't trigger re-renders
 - **Initialization Patterns**: Direct vs functional initialization for performance
 - **Update Patterns**: Direct updates vs functional updates for rapid changes
 - **Asynchronous Nature**: Understanding setState timing and batching
 - **Common Pitfalls**: Lost updates, stale state, performance traps
 
-#### **useEffect Teaching Goals** 
+#### **useEffect Teaching Goals**
+
 - **Lifecycle Understanding**: After DOM updates, not during render
 - **Dependency Mastery**: When effects run based on dependency arrays
 - **Cleanup Prevention**: Memory leaks with timers, subscriptions, listeners
 - **Side Effect Management**: Proper handling of external interactions
 
 #### **Performance Hook Goals (useMemo/useCallback)**
+
 - **Optimization Timing**: When memoization actually helps performance
 - **Reference Equality**: Why object/function recreation causes issues
 - **Dependency Management**: Controlling when recalculation occurs
@@ -243,18 +262,21 @@ This application serves as a comprehensive interactive learning platform for Rea
 ### Interactive Learning Patterns
 
 #### **Visual Learning Aids**
+
 - **Color-coded Comparisons**: Red (❌ BAD) vs Green (✅ GOOD) patterns
 - **Side-by-Side Demos**: Simultaneous good/bad practice comparisons
 - **Status Badges**: Immediate visual feedback on approach quality
 - **Console Integration**: Real-time logging for behind-the-scenes understanding
 
 #### **Hands-On Demonstrations**
+
 - **Interactive Counters**: Click-based state change demonstrations
 - **Timer Cleanups**: Mount/unmount lifecycle visualization
 - **Performance Comparisons**: Visible performance impact demonstrations
 - **Memory Leak Examples**: Show problems and solutions in real-time
 
 #### **Progressive Disclosure**
+
 - **Basic → Advanced**: Start with simple concepts, build complexity
 - **Problem → Solution**: Show the issue first, then demonstrate the fix
 - **Why → How → What**: Explain reasoning before implementation details
@@ -263,12 +285,14 @@ This application serves as a comprehensive interactive learning platform for Rea
 ### Common Pitfalls Prevention
 
 #### **State Management Anti-Patterns**
+
 - **Direct Mutation**: Why `state.push()` doesn't work
 - **Stale State**: Rapid updates with direct state access
 - **Expensive Initialization**: Performance impact without functional init
 - **Missing Cleanup**: Memory leaks from uncleaned effects
 
 #### **Performance Anti-Patterns**
+
 - **Unnecessary Re-renders**: Object/function recreation issues
 - **Missing Memoization**: When optimization is actually needed
 - **Dependency Issues**: Stale closures and infinite loops
@@ -277,12 +301,14 @@ This application serves as a comprehensive interactive learning platform for Rea
 ### Learning Assessment Features
 
 #### **Immediate Feedback Systems**
+
 - **Console Logging**: Shows internal React behavior during interactions
 - **Visual State Changes**: Counter updates demonstrate re-render triggers
 - **Performance Impact**: Visible lag demonstrates optimization benefits
 - **Error Demonstrations**: Shows actual problems, not just theory
 
 #### **Reinforcement Patterns**
+
 - **Repetition with Variation**: Same concepts in different contexts
 - **Comparative Analysis**: Always show good and bad approaches
 - **Real-World Scenarios**: Form handling, data fetching, DOM manipulation

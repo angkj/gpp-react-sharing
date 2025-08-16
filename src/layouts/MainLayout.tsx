@@ -4,23 +4,20 @@ import { Sun, Moon } from 'lucide-react';
 import AppSideNavBar from '../components/AppSideNavBar';
 import { useTheme } from '../hooks/useTheme';
 import HomePage from '../pages/HomePage';
-import ConceptsPage from '../pages/concepts/ConceptsPage';
-import FrameworkComparison from '../pages/concepts/FrameworkComparison';
-import IdempotentDemo from '../pages/concepts/IdempotentDemo';
-import PropsDownCallBackUp from '../pages/concepts/PropsDownCallBackUp';
+import IdempotentDemo from '../pages/IdempotentDemo';
+import PropsDownCallBackUp from '../pages/PropsDownCallBackUp';
 import UseEffectPage from '../pages/hooks/UseEffectPage';
-import UseStatePage from '../pages/hooks/UseStatePage';
+import UseStatePage from '../pages/UseStatePage';
 import UseRefPage from '../pages/hooks/UseRefPage';
 import UseContextPage from '../pages/hooks/UseContextPage';
-import UseMemoPage from '../pages/hooks/UseMemoPage';
-import UseCallbackPage from '../pages/hooks/UseCallbackPage';
-import UseImperativeHandlePage from '../pages/hooks/UseImperativeHandlePage';
 import reactLogo from '../assets/react.svg';
+import { SampleComponent } from '../pages/SampleComponent';
+import { UpdatingVariables } from '../pages/UpdatingVariables';
+import { ManagingState } from '../pages/ManagingState';
 
 const MainLayout = () => {
   const [currentPage, setCurrentPage] = useState('home');
   const { theme, toggleTheme } = useTheme();
-  console.log('Current theme:', theme);
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const page = urlParams.get('page') || 'home';
@@ -37,16 +34,16 @@ const MainLayout = () => {
 
   const renderPage = () => {
     switch (currentPage) {
-      case 'home':
-        return <HomePage />;
-      case 'concepts-overview':
-        return <ConceptsPage />;
-      case 'framework-comparison':
-        return <FrameworkComparison />;
-      case 'idempotent-demo':
+      case 'sampleComponent':
+        return <SampleComponent />;
+      case 'pureComponent':
         return <IdempotentDemo />;
+      case 'updatingVariables':
+        return <UpdatingVariables />;
       case 'props-down-callbacks-up':
         return <PropsDownCallBackUp />;
+      case 'managing-state':
+        return <ManagingState />;
       case 'useEffect':
         return <UseEffectPage />;
       case 'useState':
@@ -55,12 +52,6 @@ const MainLayout = () => {
         return <UseRefPage />;
       case 'useContext':
         return <UseContextPage />;
-      case 'useMemo':
-        return <UseMemoPage />;
-      case 'useCallback':
-        return <UseCallbackPage />;
-      case 'useImperativeHandle':
-        return <UseImperativeHandlePage />;
       default:
         return <HomePage />;
     }

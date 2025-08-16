@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { DemoContainer, InfoBox, ComparisonCounter } from '../../../shared/components';
+import { ComparisonCounter } from '../../../shared/components';
 
 export const RapidUpdatesDemo = () => {
   const [directCount, setDirectCount] = useState(0);
@@ -26,49 +26,30 @@ export const RapidUpdatesDemo = () => {
   };
 
   return (
-    <DemoContainer 
-      title="Rapid Updates Demo: Direct vs Functional"
-      style={{ marginTop: 'var(--spacing-2xl)' }}
-    >
-      <p style={{
-        fontSize: 'var(--font-size-base)',
-        color: 'var(--apple-text-secondary)',
-        lineHeight: '1.6',
-        marginBottom: 'var(--spacing-xl)'
-      }}>
-        Both buttons call setState 5 times rapidly. See which approach works correctly!
-      </p>
-
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: 'var(--spacing-xl)',
-        marginBottom: 'var(--spacing-xl)'
-      }}>
-        <ComparisonCounter
-          variant="error"
-          title="Direct Updates"
-          codeExample="setCount(count + 1)"
-          count={directCount}
-          onIncrement={handleDirectRapidUpdate}
-          buttonText="+5 (Might Only Add 1!)"
-          description="Uses stale state - loses updates!"
-        />
-
-        <ComparisonCounter
-          variant="success"
-          title="Functional Updates"
-          codeExample="setCount(prev => prev + 1)"
-          count={functionalCount}
-          onIncrement={handleFunctionalRapidUpdate}
-          buttonText="+5 (Always Works!)"
-          description="Uses latest state - never loses updates!"
-        />
-      </div>
-
-      <InfoBox variant="warning">
-        💡 <strong>Why This Happens:</strong> setState is asynchronous and batches updates. Direct updates use stale state values, while functional updates always get the latest state from React.
-      </InfoBox>
-    </DemoContainer>
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: 'var(--spacing-xl)',
+      marginBottom: 'var(--spacing-xl)'
+    }}>
+      <ComparisonCounter
+        variant="error"
+        title="Direct Updates"
+        codeExample="setCount(count + 1)"
+        count={directCount}
+        onIncrement={handleDirectRapidUpdate}
+        buttonText="+5 (Might Only Add 1!)"
+        description="Uses stale state - loses updates!"
+      />
+      <ComparisonCounter
+        variant="success"
+        title="Functional Updates"
+        codeExample="setCount(prev => prev + 1)"
+        count={functionalCount}
+        onIncrement={handleFunctionalRapidUpdate}
+        buttonText="+5 (Always Works!)"
+        description="Uses latest state - never loses updates!"
+      />
+    </div>
   );
 };

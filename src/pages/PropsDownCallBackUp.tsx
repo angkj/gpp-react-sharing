@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Container from '../shared/components/Container';
+import { MainTitle } from '../shared/components/MainTitle';
 
 // Child Component that receives props and callback
 const Counter = ({ 
@@ -143,40 +145,17 @@ const PropsDownCallBackUp = () => {
   const resetChildB = () => setChildBCount(20);
 
   return (
-    <div style={{ 
-      maxWidth: '1000px',
-      animation: 'fadeInUp 0.6s ease-out'
-    }}>
-      <div style={{ marginBottom: 'var(--spacing-3xl)' }}>
-        <h1 style={{
-          fontSize: 'var(--font-size-4xl)',
-          fontWeight: '700',
-          color: 'var(--apple-text-primary)',
-          marginBottom: 'var(--spacing-lg)',
-          letterSpacing: '-0.5px',
-          textAlign: 'center'
-        }}>
-          Props Down, Callbacks Up ⬆️⬇️
-        </h1>
-        <p style={{
-          fontSize: 'var(--font-size-lg)',
-          color: 'var(--apple-text-secondary)',
-          lineHeight: '1.6',
-          fontWeight: '400',
-          textAlign: 'center'
-        }}>
-          How parent and child components communicate in React
-        </p>
-      </div>
+    <Container>
+      <MainTitle title='Props Down, Callbacks Up' />
 
       {/* Parent State Display */}
       <div style={{
-        padding: 'var(--spacing-2xl)',
+        padding: 'var(--spacing-md)',
         backgroundColor: 'var(--apple-background)',
         borderRadius: 'var(--radius-lg)',
         border: '2px solid var(--apple-blue)',
         boxShadow: '0 4px 16px var(--apple-shadow)',
-        marginBottom: 'var(--spacing-2xl)',
+        marginBottom: 'var(--spacing-md)',
         textAlign: 'center'
       }}>
         <div style={{
@@ -354,116 +333,7 @@ const PropsDownCallBackUp = () => {
           />
         </div>
       </div>
-
-      {/* Explanation */}
-      <div style={{
-        padding: 'var(--spacing-2xl)',
-        backgroundColor: 'var(--apple-background)',
-        borderRadius: 'var(--radius-lg)',
-        border: '1px solid var(--apple-separator)',
-        boxShadow: '0 4px 16px var(--apple-shadow)'
-      }}>
-        <h2 style={{
-          fontSize: 'var(--font-size-2xl)',
-          fontWeight: '600',
-          color: 'var(--apple-text-primary)',
-          marginBottom: 'var(--spacing-xl)'
-        }}>
-          How It Works
-        </h2>
-
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: 'var(--spacing-xl)'
-        }}>
-          <div>
-            <h3 style={{
-              color: 'var(--apple-blue)',
-              fontSize: 'var(--font-size-lg)',
-              marginBottom: 'var(--spacing-md)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: 'var(--spacing-sm)'
-            }}>
-              ⬇️ Props Down
-            </h3>
-            <ul style={{
-              color: 'var(--apple-text-secondary)',
-              lineHeight: '1.6',
-              paddingLeft: 'var(--spacing-lg)'
-            }}>
-              <li>Parent passes <code>count</code> value to child</li>
-              <li>Parent passes callback functions as props</li>
-              <li>Child receives these as props</li>
-              <li>Data flows from parent to child</li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 style={{
-              color: '#4CAF50',
-              fontSize: 'var(--font-size-lg)',
-              marginBottom: 'var(--spacing-md)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: 'var(--spacing-sm)'
-            }}>
-              ⬆️ Callbacks Up
-            </h3>
-            <ul style={{
-              color: 'var(--apple-text-secondary)',
-              lineHeight: '1.6',
-              paddingLeft: 'var(--spacing-lg)'
-            }}>
-              <li>Child calls the callback functions</li>
-              <li>Callbacks execute in parent's context</li>
-              <li>Parent's state gets updated</li>
-              <li>Changes flow back down as new props</li>
-            </ul>
-          </div>
-        </div>
-
-        <div style={{
-          marginTop: 'var(--spacing-xl)',
-          padding: 'var(--spacing-lg)',
-          backgroundColor: '#E3F2FD',
-          borderRadius: 'var(--radius-md)',
-          borderLeft: '4px solid var(--apple-blue)'
-        }}>
-          <p style={{
-            fontSize: 'var(--font-size-base)',
-            fontWeight: '500',
-            margin: 0,
-            color: '#1565C0'
-          }}>
-            💡 <strong>Key Insight:</strong> This pattern maintains unidirectional data flow while allowing child components to communicate changes back to their parent. The parent remains the single source of truth!
-          </p>
-        </div>
-      </div>
-
-      <style>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        code {
-          background-color: var(--apple-gray-1);
-          padding: 2px 6px;
-          border-radius: 4px;
-          font-family: SF Mono, Monaco, monospace;
-          font-size: 0.9em;
-          color: var(--apple-blue);
-        }
-      `}</style>
-    </div>
+    </Container>
   );
 };
 

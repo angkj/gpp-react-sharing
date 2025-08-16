@@ -1,4 +1,4 @@
-import { Home, BookOpen, Code, ChevronDown } from 'lucide-react';
+import { Code, ChevronDown, Goal } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 const AppSideNavBar = () => {
@@ -12,7 +12,7 @@ const AppSideNavBar = () => {
     
     // Auto-expand sections if related pages are selected
     const hookPages = ['useEffect', 'useState', 'useRef', 'useContext', 'useMemo', 'useCallback', 'useImperativeHandle'];
-    const conceptPages = ['concepts-overview', 'framework-comparison', 'idempotent-demo', 'props-down-callbacks-up'];
+    const conceptPages = ['concepts-overview', 'idempotent-demo', 'props-down-callbacks-up'];
     
     if (hookPages.includes(page)) {
       setExpandedSections(prev => [...prev.filter(s => s !== 'hooks'), 'hooks']);
@@ -42,17 +42,35 @@ const AppSideNavBar = () => {
 
   const menuItems = [
     {
-      key: 'home',
-      icon: <Home size={18} />,
-      label: 'Home',
+      key: 'sampleComponent',
+      icon: <Goal size={18} />,
+      label: 'Sample Component',
     },
-  ];
-
-  const conceptItems = [
-    { key: 'concepts-overview', label: 'Overview' },
-    { key: 'framework-comparison', label: 'Framework Comparison' },
-    { key: 'idempotent-demo', label: 'Good Clock, Bad Clock' },
-    { key: 'props-down-callbacks-up', label: 'Props Down, Callbacks Up' },
+    {
+      key: 'pureComponent',
+      icon: <Goal size={18} />,
+      label: 'Pure Component',
+    },
+    {
+      key: 'updatingVariables',
+      icon: <Goal size={18} />,
+      label: 'Updating Variables',
+    },
+    {
+      key: 'useState',
+      icon: <Goal size={18} />,
+      label: 'useState Forms',
+    },
+    {
+      key: 'props-down-callbacks-up',
+      icon: <Goal size={18} />,
+      label: 'Props Down, Callbacks Up',
+    },
+    {
+      key: 'managing-state',
+      icon: <Goal size={18} />,
+      label: 'Managing State',
+    }
   ];
 
   const hookItems = [
@@ -147,61 +165,6 @@ const AppSideNavBar = () => {
           isSelected={selectedPage === item.key} 
         />
       ))}
-
-      {/* Concepts section */}
-      <div>
-        <div
-          onClick={() => toggleSection('concepts')}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 'var(--spacing-sm)',
-            padding: 'var(--spacing-sm) var(--spacing-lg)',
-            margin: '2px var(--spacing-md)',
-            borderRadius: 'var(--radius-sm)',
-            cursor: 'pointer',
-            color: 'var(--apple-text-primary)',
-            transition: 'var(--transition-fast)',
-            fontSize: 'var(--font-size-base)',
-            fontWeight: '500',
-            userSelect: 'none'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = 'var(--apple-gray-1)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = 'transparent';
-          }}
-        >
-          <div style={{ color: 'var(--apple-text-secondary)' }}>
-            <BookOpen size={18} />
-          </div>
-          <span style={{ flex: 1 }}>Concepts</span>
-          <div style={{ 
-            color: 'var(--apple-text-tertiary)',
-            transition: 'var(--transition-fast)',
-            transform: expandedSections.includes('concepts') ? 'rotate(0deg)' : 'rotate(-90deg)'
-          }}>
-            <ChevronDown size={16} />
-          </div>
-        </div>
-
-        {/* Concept items */}
-        {expandedSections.includes('concepts') && (
-          <div style={{
-            marginTop: 'var(--spacing-xs)',
-            marginBottom: 'var(--spacing-sm)'
-          }}>
-            {conceptItems.map(item => (
-              <HookItem 
-                key={item.key} 
-                item={item} 
-                isSelected={selectedPage === item.key} 
-              />
-            ))}
-          </div>
-        )}
-      </div>
 
       {/* Hooks section */}
       <div>

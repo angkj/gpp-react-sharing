@@ -223,32 +223,7 @@ export const GoodInitializationDemo = () => {
 
 export const InitializationPerformanceDemo = () => {
   return (
-    <div style={{
-      padding: 'var(--spacing-2xl)',
-      backgroundColor: 'var(--apple-background)',
-      borderRadius: 'var(--radius-lg)',
-      border: '1px solid var(--apple-separator)',
-      boxShadow: '0 4px 16px var(--apple-shadow)',
-      marginTop: 'var(--spacing-2xl)'
-    }}>
-      <h2 style={{
-        fontSize: 'var(--font-size-2xl)',
-        fontWeight: '600',
-        color: 'var(--apple-text-primary)',
-        marginBottom: 'var(--spacing-lg)'
-      }}>
-        Initialization Performance Demo
-      </h2>
-
-      <p style={{
-        fontSize: 'var(--font-size-base)',
-        color: 'var(--apple-text-secondary)',
-        lineHeight: '1.6',
-        marginBottom: 'var(--spacing-xl)'
-      }}>
-        Watch the console to see the difference between direct vs functional initialization!
-      </p>
-
+    <div>
       <div style={{
         display: 'grid',
         gridTemplateColumns: '1fr 1fr',
@@ -257,22 +232,6 @@ export const InitializationPerformanceDemo = () => {
       }}>
         <BadInitializationDemo />
         <GoodInitializationDemo />
-      </div>
-
-      <div style={{
-        padding: 'var(--spacing-lg)',
-        backgroundColor: '#E3F2FD',
-        borderRadius: 'var(--radius-md)',
-        borderLeft: '4px solid var(--apple-blue)'
-      }}>
-        <p style={{
-          fontSize: 'var(--font-size-base)',
-          fontWeight: '500',
-          margin: 0,
-          color: '#1565C0'
-        }}>
-          🎯 <strong>Try This:</strong> Open your browser's console, then click both "Re-render" buttons multiple times. Notice how the left component logs on every click, while the right component only logged once during initial mount!
-        </p>
       </div>
     </div>
   );

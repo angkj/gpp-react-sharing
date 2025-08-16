@@ -1,14 +1,14 @@
-import { useState } from "react";
-
 const HomePage = () => {
   return (
-    <div style={{ 
+    <div style={{
       maxWidth: '800px',
+      margin: '0 auto',
       animation: 'fadeInUp 0.6s ease-out'
     }}>
       <div style={{
-        textAlign: 'center',
-        // marginBottom: 'var(--spacing-3xl)'
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}>
         <h1 style={{
           fontSize: 'var(--font-size-5xl)',
@@ -17,8 +17,6 @@ const HomePage = () => {
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
-          // marginBottom: 'var(--spacing-lg)',
-          letterSpacing: '-1px'
         }}>
           Working with React
         </h1>
