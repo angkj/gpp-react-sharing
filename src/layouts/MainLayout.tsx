@@ -14,6 +14,7 @@ import reactLogo from '../assets/react.svg';
 import { SampleComponent } from '../pages/SampleComponent';
 import { UpdatingVariables } from '../pages/UpdatingVariables';
 import { ManagingState } from '../pages/ManagingState';
+import { DefiningInternalComponent } from '../pages/DefiningInternalComponent';
 
 const MainLayout = () => {
   const [currentPage, setCurrentPage] = useState('home');
@@ -44,6 +45,8 @@ const MainLayout = () => {
         return <PropsDownCallBackUp />;
       case 'managing-state':
         return <ManagingState />;
+      case 'defining-internal-component':
+        return <DefiningInternalComponent />;
       case 'useEffect':
         return <UseEffectPage />;
       case 'useState':

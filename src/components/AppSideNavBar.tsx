@@ -70,6 +70,21 @@ const AppSideNavBar = () => {
       key: 'managing-state',
       icon: <Goal size={18} />,
       label: 'Managing State',
+    },
+    {
+      key: 'defining-internal-component',
+      icon: <Goal size={18} />,
+      label: 'Defining Internal Components',
+    },
+    {
+      key: 'useRef',
+      icon: <Goal size={18} />,
+      label: 'Escape Hatch - useRef',
+    },
+    {
+      key: 'useEffect',
+      icon: <Goal size={18} />,
+      label: 'Escape Hatch - useEffect',
     }
   ];
 
