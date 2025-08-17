@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Modal } from 'antd';
-import { DemoContainer, InfoBox, Button } from '../../../shared/components';
+import { InfoBox, Button } from '../../shared/components';
 
 // Timer component that will be mounted/unmounted
 const TimerComponent = () => {

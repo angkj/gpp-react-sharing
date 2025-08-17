@@ -9,6 +9,7 @@ const HomePage = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        minHeight: '60vh',
       }}>
         <h1 style={{
           fontSize: 'var(--font-size-5xl)',

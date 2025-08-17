@@ -1,6 +1,6 @@
 import { CleanupDemo } from './useEffectPageComponents/CleanupDemo';
-import { MainTitle } from '../../shared/components/MainTitle';
-import Container from '../../shared/components/Container';
+import { MainTitle } from '../shared/components/MainTitle';
+import Container from '../shared/components/Container';
 
 const UseEffectPage = () => {
   return (

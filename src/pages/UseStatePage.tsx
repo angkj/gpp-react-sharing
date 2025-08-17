@@ -1,7 +1,7 @@
 import Container from '../shared/components/Container';
 import { MainTitle } from '../shared/components/MainTitle';
-import { InitializationPerformanceDemo } from './hooks/useStatePageComponents/InitializationPerformanceDemo';
-import { RapidUpdatesDemo } from './hooks/useStatePageComponents/RapidUpdatesDemo';
+import { InitializationPerformanceDemo } from './useStatePageComponents/InitializationPerformanceDemo';
+import { RapidUpdatesDemo } from './useStatePageComponents/RapidUpdatesDemo';
 
 const UseStatePage = () => {
   return (

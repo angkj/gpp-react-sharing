@@ -7,27 +7,15 @@ const GoodClock = () => {
   const [time] = useState(() => new Date());
   return (
     <div style={{
-      padding: 'var(--spacing-xl)',
-      backgroundColor: '#E8F5E8',
+      backgroundColor: 'var(--apple-background-secondary)',
       borderRadius: 'var(--radius-lg)',
-      border: '2px solid #4CAF50',
+      padding: 'var(--spacing-xl)',
+      border: '2px solid var(--apple-separator)',
+      borderLeft: '4px solid #34C759', // Green for "correct" approach
+      boxShadow: '0 4px 16px var(--apple-shadow)',
       textAlign: 'center',
       position: 'relative'
     }}>
-      <div style={{
-        position: 'absolute',
-        top: 'var(--spacing-sm)',
-        left: 'var(--spacing-sm)',
-        backgroundColor: '#4CAF50',
-        color: 'white',
-        padding: '4px 8px',
-        borderRadius: 'var(--radius-sm)',
-        fontSize: 'var(--font-size-xs)',
-        fontWeight: '600'
-      }}>
-        ✅ GOOD
-      </div>
-      
       <h3 style={{
         fontSize: 'var(--font-size-xl)',
         fontWeight: '600',
@@ -57,27 +45,15 @@ const BadClock = () => {
   
   return (
     <div style={{
-      padding: 'var(--spacing-xl)',
-      backgroundColor: '#FFEBEE',
+      backgroundColor: 'var(--apple-background-secondary)',
       borderRadius: 'var(--radius-lg)',
-      border: '2px solid #F44336',
+      padding: 'var(--spacing-xl)',
+      border: '2px solid var(--apple-separator)',
+      borderLeft: '4px solid #FF3B30', // Red for "wrong" approach
+      boxShadow: '0 4px 16px var(--apple-shadow)',
       textAlign: 'center',
       position: 'relative'
     }}>
-      <div style={{
-        position: 'absolute',
-        top: 'var(--spacing-sm)',
-        left: 'var(--spacing-sm)',
-        backgroundColor: '#F44336',
-        color: 'white',
-        padding: '4px 8px',
-        borderRadius: 'var(--radius-sm)',
-        fontSize: 'var(--font-size-xs)',
-        fontWeight: '600'
-      }}>
-        ❌ BAD
-      </div>
-      
       <h3 style={{
         fontSize: 'var(--font-size-xl)',
         fontWeight: '600',

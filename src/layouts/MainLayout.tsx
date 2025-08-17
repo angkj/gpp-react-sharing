@@ -6,15 +6,13 @@ import { useTheme } from '../hooks/useTheme';
 import HomePage from '../pages/HomePage';
 import IdempotentDemo from '../pages/IdempotentDemo';
 import PropsDownCallBackUp from '../pages/PropsDownCallBackUp';
-import UseEffectPage from '../pages/hooks/UseEffectPage';
-import UseStatePage from '../pages/UseStatePage';
-import UseRefPage from '../pages/hooks/UseRefPage';
-import UseContextPage from '../pages/hooks/UseContextPage';
 import reactLogo from '../assets/react.svg';
 import { SampleComponent } from '../pages/SampleComponent';
 import { UpdatingVariables } from '../pages/UpdatingVariables';
 import { ManagingState } from '../pages/ManagingState';
 import { DefiningInternalComponent } from '../pages/DefiningInternalComponent';
+import UseEffectPage from '../pages/UseEffectPage';
+import UseStatePage from '../pages/UseStatePage';
 
 const MainLayout = () => {
   const [currentPage, setCurrentPage] = useState('home');
@@ -51,10 +49,6 @@ const MainLayout = () => {
         return <UseEffectPage />;
       case 'useState':
         return <UseStatePage />;
-      case 'useRef':
-        return <UseRefPage />;
-      case 'useContext':
-        return <UseContextPage />;
       default:
         return <HomePage />;
     }
