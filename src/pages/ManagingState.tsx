@@ -1,6 +1,6 @@
 import Container from "../shared/components/Container";
 import { MainTitle } from "../shared/components/MainTitle";
-import { useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { Button } from "antd";
 
 export const ManagingState = () => {
@@ -273,7 +273,10 @@ const UseContextExample = () => {
   )
 }
 
+// const SomethingContext = createContext(0)
+
 const GreatGrandFather = () => {
+  const something = 1000
   return (
     <div style={{
       border: '2px solid #8E44AD',
@@ -290,14 +293,18 @@ const GreatGrandFather = () => {
       }}>
         👴 GreatGrandFather
       </div>
+
       <div style={{ paddingLeft: 'var(--spacing-lg)' }}>
-        <GrandFather />
+        {/* <SomethingContext.Provider value={something}> */}
+          <GrandFather something={something} />
+        {/* </SomethingContext.Provider> */}
       </div>
+      GrandFather has {something}
     </div>
   )
 }
 
-const GrandFather = () => {
+const GrandFather = ({something}: {something: number}) => {
   return (
     <div style={{
       border: '2px solid #E67E22',
@@ -315,13 +322,13 @@ const GrandFather = () => {
         👨‍🦳 GrandFather
       </div>
       <div style={{ paddingLeft: 'var(--spacing-lg)' }}>
-        <Father />
+        <Father something={something} />
       </div>
     </div>
   )
 }
 
-const Father = () => {
+const Father = ({something}: {something: number}) => {
   return (
     <div style={{
       border: '2px solid #3498DB',
@@ -339,13 +346,13 @@ const Father = () => {
         👨 Father
       </div>
       <div style={{ paddingLeft: 'var(--spacing-lg)' }}>
-        <Son />
+        <Son something={something} />
       </div>
     </div>
   )
 }
 
-const Son = () => {
+const Son = ({something}: {something: number}) => {
   return (
     <div style={{
       border: '2px solid #E74C3C',
@@ -363,13 +370,14 @@ const Son = () => {
         👦 Son
       </div>
       <div style={{ paddingLeft: 'var(--spacing-lg)' }}>
-        <GrandSon />
+        <GrandSon something={something} />
       </div>
     </div>
   )
 }
 
-const GrandSon = () => {
+const GrandSon = ({something}: {something: number}) => {
+  // const somethingFromContext = useContext(SomethingContext);
   return (
     <div style={{
       border: '2px solid #27AE60',
@@ -384,6 +392,8 @@ const GrandSon = () => {
       }}>
         👶 GrandSon
       </div>
+      {something}
+      {/* {somethingFromContext} */}
     </div>
   )
 }
