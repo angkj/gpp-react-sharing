@@ -22,9 +22,9 @@ const TimerComponent = () => {
     // Cleanup function - COMMENTED OUT TO SHOW MEMORY LEAK
     // Uncomment the below to "FIX" the memory leak
     // return () => {
-    //   console.log('🔴 Timer cleanup - clearing interval');
+    //   console.log('🟢 Timer cleanup - clearing interval');
     //   clearInterval(interval);
-    //   console.log('🔴 Interval cleared - no more memory leaks!');
+    //   console.log('🟢 Interval cleared - no more memory leaks!');
     // };
   }, []);
 
@@ -75,25 +75,23 @@ export const CleanupDemo = () => {
   };
 
   return (
-    <DemoContainer title="useEffect Cleanup Demo" style={{ marginTop: 'var(--spacing-2xl)' }}>
-      <p style={{
-        fontSize: 'var(--font-size-base)',
-        color: 'var(--apple-text-secondary)',
-        lineHeight: '1.6',
-        marginBottom: 'var(--spacing-xl)'
-      }}>
-        Open the modal to mount the timer component, then close it to see cleanup in action. Open your console (F12) to watch the cleanup process!
-      </p>
-
+    <div style={{
+      backgroundColor: 'var(--apple-background-secondary)',
+      borderRadius: 'var(--radius-lg)',
+      padding: 'var(--spacing-xl)',
+      border: '2px solid var(--apple-separator)',
+      borderLeft: '4px solid var(--apple-blue)',
+      boxShadow: '0 4px 16px var(--apple-shadow)',
+      marginBottom: 'var(--spacing-xl)'
+    }}>
       <div style={{
         display: 'flex',
         justifyContent: 'center',
-        marginBottom: 'var(--spacing-xl)'
       }}>
         <div style={{ textAlign: 'center' }}>
           <Button
             variant="success"
-            size="lg"
+            size="md"
             onClick={handleOpenTimer}
             style={{
               boxShadow: '0 4px 12px rgba(76, 175, 80, 0.3)',
@@ -102,13 +100,6 @@ export const CleanupDemo = () => {
           >
             ⏰ Open Timer Cleanup Demo
           </Button>
-          <div style={{
-            fontSize: 'var(--font-size-sm)',
-            color: 'var(--apple-text-secondary)',
-            fontStyle: 'italic'
-          }}>
-            setInterval cleanup example
-          </div>
         </div>
       </div>
 
@@ -121,7 +112,7 @@ export const CleanupDemo = () => {
         </InfoBox>
         
         <InfoBox variant="error">
-          ⚠️ <strong>Without Cleanup:</strong> The timer keeps running in the background consuming memory and CPU, even after the component is destroyed. This is a memory leak!
+          ⚠️ <strong>Without Cleanup:</strong> The timer keeps running in the background, even after the component is destroyed. This is a memory leak!
         </InfoBox>
       </div>
 
@@ -131,11 +122,11 @@ export const CleanupDemo = () => {
         onCancel={handleCloseTimer}
         footer={null}
         width={500}
-        destroyOnClose={true}
+        destroyOnHidden={true}
         centered
       >
         <TimerComponent />
       </Modal>
-    </DemoContainer>
+    </div>
   );
 };
